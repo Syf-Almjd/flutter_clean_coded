@@ -11,18 +11,17 @@ class DatePicker extends StatelessWidget {
   final bool isFromToSelection;
   final Function() onDone;
 
-  const DatePicker(
-      {super.key,
-      required this.title,
-      required this.onDone,
-      required this.isFromToSelection});
+  const DatePicker({
+    super.key,
+    required this.title,
+    required this.onDone,
+    required this.isFromToSelection,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: textC(title),
-      ),
+      appBar: AppBar(title: textC(title)),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -43,23 +42,27 @@ class DatePicker extends StatelessWidget {
               ),
             ),
             loadButton(
-                context: context,
-                onPressed: () async {
-                  if (datesValues.startDate == null ||
-                      datesValues.endDate == null) {
-                    showToast("Please choose starting and ending dates...",
-                        AppColors.primaryColor, context);
-                    return;
-                  }
-                  await onDone();
+              context: context,
+              onPressed: () async {
+                if (datesValues.startDate == null ||
+                    datesValues.endDate == null) {
+                  showToast(
+                    "Please choose starting and ending dates...",
+                    AppColors.primaryColor,
+                    context,
+                  );
+                  return;
+                }
+                await onDone();
 
-                  if (context.mounted) {
-                    NaviCubit.get(context).pop(context);
-                  }
-                },
-                buttonText: "Select",
-                fontSize: AppFontSize.s16,
-                borderCurveSize: 10)
+                if (context.mounted) {
+                  NaviCubit.get(context).pop(context);
+                }
+              },
+              buttonText: "Select",
+              fontSize: AppFontSize.s16,
+              borderCurveSize: 10,
+            ),
           ],
         ),
       ),

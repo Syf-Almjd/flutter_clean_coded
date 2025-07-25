@@ -6,19 +6,22 @@ import 'styles/app_colors.dart';
 ThemeData getApplicationTheme() {
   return ThemeData.light(useMaterial3: true).copyWith(
     appBarTheme: AppBarTheme(
-        centerTitle: true,
-        color: AppColors.white,
-        surfaceTintColor: AppColors.primaryColor.withOpacity(0.1)),
+      centerTitle: true,
+      color: AppColors.white,
+      surfaceTintColor: AppColors.primaryColor.withOpacity(0.1),
+    ),
     cardColor: Colors.white,
     colorScheme: const ColorScheme.light().copyWith(
       primary: AppColors.primaryColor,
     ),
 
     //App Transition
-    pageTransitionsTheme: const PageTransitionsTheme(builders: {
-      TargetPlatform.android: OpenUpwardsPageTransitionsBuilder(),
-      TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
-    }),
+    pageTransitionsTheme: const PageTransitionsTheme(
+      builders: {
+        TargetPlatform.android: OpenUpwardsPageTransitionsBuilder(),
+        TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
+      },
+    ),
 
     // main colors of the app
     primaryColor: AppColors.primaryColor,
@@ -29,20 +32,21 @@ ThemeData getApplicationTheme() {
 
     //Text Theme
     textTheme: ThemeData.light().textTheme.apply(
-          fontFamily: AppConstants.appFontFamily,
-        ),
+      fontFamily: AppConstants.appFontFamily,
+    ),
     primaryTextTheme: ThemeData.light().textTheme.apply(
-          fontFamily: AppConstants.appFontFamily,
-        ),
+      fontFamily: AppConstants.appFontFamily,
+    ),
   );
 }
 
 ThemeData getDarkApplicationTheme() {
   return ThemeData.dark(useMaterial3: true).copyWith(
     appBarTheme: AppBarTheme(
-        centerTitle: true,
-        color: AppColors.white,
-        surfaceTintColor: AppColors.primaryColor.withOpacity(0.1)),
+      centerTitle: true,
+      color: AppColors.white,
+      surfaceTintColor: AppColors.primaryColor.withOpacity(0.1),
+    ),
     cardColor: Colors.white,
     colorScheme: const ColorScheme.dark().copyWith(
       primary: AppColors.primaryColor,

@@ -140,10 +140,7 @@ class _ExplorePageState extends State<ExplorePage> {
                 children: [
                   const Text(
                     'Categories',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                   const Spacer(),
                   Container(
@@ -154,10 +151,7 @@ class _ExplorePageState extends State<ExplorePage> {
                       },
                       child: const Text(
                         'View All',
-                        style: TextStyle(
-                          fontSize: 14,
-                          color: Colors.blue,
-                        ),
+                        style: TextStyle(fontSize: 14, color: Colors.blue),
                       ),
                     ),
                   ),
@@ -201,10 +195,7 @@ class _ExplorePageState extends State<ExplorePage> {
               // Global News Section
               const Text(
                 'Global News',
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               ListView.builder(
                 shrinkWrap: true,

@@ -9,14 +9,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:flutter_clean_coded/src/presentation/shared/components.dart';
-import 'package:flutter_clean_coded/src/presentation/state/navigation_cubit/navi_cubit.dart';
 import 'package:share_plus/share_plus.dart';
 
 abstract class AppLists {
-  static const List<String> appSupportedLanguages = [
-    "English",
-    "中文",
-  ];
+  static const List<String> appSupportedLanguages = ["English", "中文"];
   static const List<String> genderTypes = ["Male", "Female"];
 
   static const List<String> appProblemTypes = [
@@ -25,7 +21,7 @@ abstract class AppLists {
     "UI or Layout Issues",
     "Content Bugs",
     "Workflow Bugs",
-    "Other Bugs"
+    "Other Bugs",
   ];
 
   ///PROFILE
@@ -35,7 +31,7 @@ abstract class AppLists {
     "Notifications",
     "About us",
     "Report a problem",
-    "Logout"
+    "Logout",
   ];
 
   static const List<IconData> profileCardsIcons = [
@@ -129,20 +125,21 @@ abstract class AppLists {
   static List<Function> settingsCardsPages = [
     (context) {
       showChoiceDialog(
-          context: context,
-          title: "Reset Password",
-          content:
-              "We will send you an email to reset your password, do you want to proceed?",
-          onYes: () async {
-            //   var userModel = await LocalDataCubit.get(context)
-            //       .getSharedMap(AppLocalConstants.savedLocalUser);
-            //   NaviCubit.get(context).navigate(
-            //       context,
-            //       ChangePasswordScreen(
-            //         userEmail: UserModel.fromJson(userModel).email,
-            //         isAnonRequest: false,
-            //       ));
-          });
+        context: context,
+        title: "Reset Password",
+        content:
+            "We will send you an email to reset your password, do you want to proceed?",
+        onYes: () async {
+          //   var userModel = await LocalDataCubit.get(context)
+          //       .getSharedMap(AppLocalConstants.savedLocalUser);
+          //   NaviCubit.get(context).navigate(
+          //       context,
+          //       ChangePasswordScreen(
+          //         userEmail: UserModel.fromJson(userModel).email,
+          //         isAnonRequest: false,
+          //       ));
+        },
+      );
     },
     (context) async {
       // var userModel = await LocalDataCubit.get(context)
@@ -187,7 +184,10 @@ abstract class AppLists {
     },
     (context) async {
       await Clipboard.setData(
-          const ClipboardData(text: "LKE Group ${AppConstants.appVersion}"));
+        const ClipboardData(
+          text: "PRONTOSHOP Group ${AppConstants.appVersion}",
+        ),
+      );
       showToast("Copied to clipboard", AppColors.primaryColor, context);
     },
   ];

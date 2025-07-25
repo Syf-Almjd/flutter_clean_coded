@@ -3,12 +3,12 @@ import 'package:flutter_clean_coded/src/core/localization/app_locale.dart';
 import 'package:flutter_clean_coded/src/core/themes/styles/app_colors.dart';
 import 'package:flutter_clean_coded/src/core/themes/styles/app_fonts.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_clean_coded/src/domain/models/authentication/login/user_login_model.dart';
 import 'package:flutter_clean_coded/src/presentation/modules/app/explore/explore_page.dart';
 import 'package:flutter_clean_coded/src/presentation/modules/authentication/user_auth/cubit/user_auth_page_cubit.dart';
+import 'package:flutter_clean_coded/src/presentation/shared/components.dart';
+import 'package:flutter_clean_coded/src/presentation/shared/widgets_builder.dart';
 
-import '../../../../../domain/models/Authentication/login/user_login_model.dart';
-import '../../../../Shared/components.dart';
-import '../../../../Shared/widgets_builder.dart';
 import '../../../../state/navigation_cubit/navi_cubit.dart';
 import '../../password_reset/forgot_password_screen.dart';
 
@@ -30,8 +30,11 @@ class _LoginScreenState extends State<LoginScreen> {
     return Form(
       key: _validateKey,
       child: ListView(
-        padding:
-            appCustomPadding(horizontal: 20, vertical: 50, context: context),
+        padding: appCustomPadding(
+          horizontal: 20,
+          vertical: 50,
+          context: context,
+        ),
         physics: const BouncingScrollPhysics(),
         children: [
           Row(
@@ -39,8 +42,9 @@ class _LoginScreenState extends State<LoginScreen> {
             children: [
               IconButton(
                 onPressed: () {
-                  UserAuthPageCubit.get(context)
-                      .changeState(UserAuthPageInitial());
+                  UserAuthPageCubit.get(
+                    context,
+                  ).changeState(UserAuthPageInitial());
                 },
                 icon: Icon(
                   Icons.arrow_back_ios_new,
@@ -49,14 +53,13 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
               fadedText(
-                  context: context,
-                  text: "Welcome Back",
-                  textColor: AppColors.darkColor,
-                  fontSize: AppFontSize.s16,
-                  fontWeight: FontWeight.w800),
-              SizedBox(
-                width: getWidth(10, context),
-              )
+                context: context,
+                text: "Welcome Back",
+                textColor: AppColors.darkColor,
+                fontSize: AppFontSize.s16,
+                fontWeight: FontWeight.w800,
+              ),
+              SizedBox(width: getWidth(10, context)),
             ],
           ),
           getCube(5, context),
@@ -65,8 +68,11 @@ class _LoginScreenState extends State<LoginScreen> {
             child: TextFormField(
               validator: (value) {
                 if (value!.isEmpty || !value.contains('@')) {
-                  showToast("Your Email is incorrect!", AppColors.primaryColor,
-                      context);
+                  showToast(
+                    "Your Email is incorrect!",
+                    AppColors.primaryColor,
+                    context,
+                  );
                   return "Your Email is incorrect";
                 }
                 return null;
@@ -74,7 +80,8 @@ class _LoginScreenState extends State<LoginScreen> {
               controller: email,
               decoration: InputDecoration(
                 border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(200)),
+                  borderRadius: BorderRadius.circular(200),
+                ),
                 labelText: getLocaleText("Email"),
                 prefixIcon: const Icon(
                   Icons.alternate_email,
@@ -100,7 +107,8 @@ class _LoginScreenState extends State<LoginScreen> {
               obscureText: _isObscure,
               decoration: InputDecoration(
                 border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(200)),
+                  borderRadius: BorderRadius.circular(200),
+                ),
                 labelText: getLocaleText("Password"),
                 prefixIcon: const Icon(
                   Icons.password_outlined,
@@ -139,18 +147,19 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
           getCube(5, context),
           loadButton(
-              borderCurveSize: 10,
-              context: context,
-              buttonWidth: getWidth(100, context),
-              textWeight: FontWeight.w600,
-              fontSize: AppFontSize.s16,
-              buttonText: "Login",
-              onPressed: () {
-                NaviCubit.get(context).navigate(context, const ExplorePage());
-                // if (validateForm(_validateKey)) {
-                //   submitRequest();
-                // }
-              }),
+            borderCurveSize: 10,
+            context: context,
+            buttonWidth: getWidth(100, context),
+            textWeight: FontWeight.w600,
+            fontSize: AppFontSize.s16,
+            buttonText: "Login",
+            onPressed: () {
+              NaviCubit.get(context).navigate(context, const ExplorePage());
+              // if (validateForm(_validateKey)) {
+              //   submitRequest();
+              // }
+            },
+          ),
         ],
       ),
     );

@@ -30,7 +30,8 @@ class ApiClient {
 
     // _dio logger customization
     _dio.interceptors.clear();
-    _dio.interceptors.add(PrettyDioLogger(
+    _dio.interceptors.add(
+      PrettyDioLogger(
         requestHeader: printNetLogs,
         requestBody: printNetLogs,
         responseBody: printNetLogs,
@@ -43,18 +44,26 @@ class ApiClient {
         },
         request: printNetLogs,
         compact: printNetLogs,
-        maxWidth: 120));
+        maxWidth: 120,
+      ),
+    );
 
     // Method for making GET requests
     Future<Response> get(
-        Map<String, dynamic> queryData, String endPoint, context,
-        {bool printIt = false}) async {
+      Map<String, dynamic> queryData,
+      String endPoint,
+      context, {
+      bool printIt = false,
+    }) async {
       //Intercept Logs Adder
       addInterceptors(printNetLogs: printIt);
 
       try {
-        var response = await _dio.get(getApiUrl(endPoint),
-            options: Options(headers: headers), queryParameters: queryData);
+        var response = await _dio.get(
+          getApiUrl(endPoint),
+          options: Options(headers: headers),
+          queryParameters: queryData,
+        );
 
         return response;
       } on DioException catch (e) {
@@ -72,8 +81,13 @@ class ApiClient {
 
     // Method for making GET requests
     Future<Response> post(
-        Map<String, dynamic> queryData, String endPoint, context, Map dataJson,
-        {bool printIt = false, bool useAuth = false}) async {
+      Map<String, dynamic> queryData,
+      String endPoint,
+      context,
+      Map dataJson, {
+      bool printIt = false,
+      bool useAuth = false,
+    }) async {
       //Intercept Logs Adder
       addInterceptors(printNetLogs: printIt);
       // Adding authorization header if needed
@@ -81,10 +95,12 @@ class ApiClient {
         headers.remove('Authorization');
       }
       try {
-        var response = await _dio.post(getApiUrl(endPoint),
-            options: Options(headers: headers),
-            data: dataJson,
-            queryParameters: queryData);
+        var response = await _dio.post(
+          getApiUrl(endPoint),
+          options: Options(headers: headers),
+          data: dataJson,
+          queryParameters: queryData,
+        );
 
         return response;
       } on DioException catch (e) {
@@ -101,14 +117,20 @@ class ApiClient {
     }
 
     Future<Response> delete(
-        Map<String, dynamic> queryData, String endPoint, context,
-        {bool printIt = false}) async {
+      Map<String, dynamic> queryData,
+      String endPoint,
+      context, {
+      bool printIt = false,
+    }) async {
       //Intercept Logs Adder
       addInterceptors(printNetLogs: printIt);
 
       try {
-        var response = await _dio.delete(getApiUrl(endPoint),
-            options: Options(headers: headers), queryParameters: queryData);
+        var response = await _dio.delete(
+          getApiUrl(endPoint),
+          options: Options(headers: headers),
+          queryParameters: queryData,
+        );
 
         return response;
       } on DioException catch (e) {
@@ -125,16 +147,22 @@ class ApiClient {
     }
 
     Future<Response> put(
-        Map<String, dynamic> queryData, String endPoint, context, Map dataJson,
-        {bool printIt = false}) async {
+      Map<String, dynamic> queryData,
+      String endPoint,
+      context,
+      Map dataJson, {
+      bool printIt = false,
+    }) async {
       //Intercept Logs Adder
       addInterceptors(printNetLogs: printIt);
 
       try {
-        var response = await _dio.put(getApiUrl(endPoint),
-            options: Options(headers: headers),
-            data: dataJson,
-            queryParameters: queryData);
+        var response = await _dio.put(
+          getApiUrl(endPoint),
+          options: Options(headers: headers),
+          data: dataJson,
+          queryParameters: queryData,
+        );
 
         return response;
       } on DioException catch (e) {

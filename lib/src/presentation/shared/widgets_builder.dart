@@ -17,7 +17,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:lottie/lottie.dart';
@@ -115,15 +114,16 @@ Widget loadingNetworkContainer({
             child: CircularProgressIndicator(
               value: loadingProgress.expectedTotalBytes != null
                   ? loadingProgress.cumulativeBytesLoaded /
-                      loadingProgress.expectedTotalBytes!
+                        loadingProgress.expectedTotalBytes!
                   : null,
             ),
           );
         }
       },
       errorBuilder: (context, url, error) => const Icon(
-          Ionicons.cloud_offline_outline,
-          color: AppColors.primaryLight),
+        Ionicons.cloud_offline_outline,
+        color: AppColors.primaryLight,
+      ),
     ),
   );
 }
@@ -140,18 +140,21 @@ Widget lottieNetworkContainer({
     child: Lottie.network(
       url,
       fit: BoxFit.cover,
-      options: LottieOptions(
-        enableMergePaths: true,
-      ),
+      options: LottieOptions(enableMergePaths: true),
       errorBuilder: (context, url, error) => const Icon(
-          Ionicons.cloud_offline_outline,
-          color: AppColors.primaryLight),
+        Ionicons.cloud_offline_outline,
+        color: AppColors.primaryLight,
+      ),
     ),
   );
 }
 
-Widget appLogoPreview(
-    {required context, double? width, double? height, wBackground = true}) {
+Widget appLogoPreview({
+  required context,
+  double? width,
+  double? height,
+  wBackground = true,
+}) {
   return Hero(
     transitionOnUserGestures: true,
     tag: AppLocalConstants.logoHero,
@@ -159,24 +162,24 @@ Widget appLogoPreview(
       child: SizedBox(
         width: width ?? getWidth(20, context),
         height: height ?? getHeight(30, context),
-        child:
-            Image.asset(wBackground ? AppAssets.appLogoWB : AppAssets.appLogo),
+        child: Image.asset(
+          wBackground ? AppAssets.appLogoWB : AppAssets.appLogo,
+        ),
       ),
     ),
   );
 }
 
-gifPreview(
-    {required context,
-    required String filePath,
-    double? width,
-    double? height}) {
+gifPreview({
+  required context,
+  required String filePath,
+  double? width,
+  double? height,
+}) {
   return SizedBox(
     width: width ?? getWidth(100, context),
     height: height ?? getHeight(10, context),
-    child: Image.asset(
-      filePath,
-    ),
+    child: Image.asset(filePath),
   );
 }
 
@@ -186,14 +189,14 @@ paymentLoading() {
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        Image.asset(
-          AppAssets.paymentLoadingGif,
-          scale: 5,
-        ),
+        Image.asset(AppAssets.paymentLoadingGif, scale: 5),
         loadingAnimation(
-            loadingType: LoadingAnimationWidget.threeArchedCircle(
-                color: AppColors.primaryLight, size: 50)),
-        Container()
+          loadingType: LoadingAnimationWidget.threeArchedCircle(
+            color: AppColors.primaryLight,
+            size: 50,
+          ),
+        ),
+        Container(),
       ],
     ),
   );
@@ -207,12 +210,9 @@ searchingAnimation() {
       FadeInUp(
         from: 10,
         delay: const Duration(milliseconds: 400),
-        child: Image.asset(
-          AppAssets.searchMainGif,
-          scale: 10,
-        ),
+        child: Image.asset(AppAssets.searchMainGif, scale: 10),
       ),
-      loadingAnimation()
+      loadingAnimation(),
     ],
   );
 }
@@ -221,10 +221,7 @@ searchingHouseAnimation() {
   return FadeInUp(
     from: 10,
     delay: const Duration(milliseconds: 400),
-    child: Image.asset(
-      AppAssets.houseBSearchingGif,
-      scale: 5,
-    ),
+    child: Image.asset(AppAssets.houseBSearchingGif, scale: 5),
   );
 }
 
@@ -245,24 +242,26 @@ Widget fadedText({
   double? animateDistance,
 }) {
   return FadeInDown(
-      from: animateDistance ?? 10,
-      delay: Duration(milliseconds: delayTime ?? 10),
-      curve: curvingStyle ?? Curves.fastEaseInToSlowEaseOut,
-      child: Padding(
-        padding: paddingSize ?? const EdgeInsets.all(8.0),
-        child: textC(
-          overflow: textOverFlow,
-          text,
-          preText: preText ?? '',
-          postText: postText ?? '',
-          maxLines: maxLinesSize,
-          textAlign: alignment ?? TextAlign.start,
-          style: TextStyle(
-              fontSize: fontSize ?? AppFontSize.s14,
-              color: textColor ?? AppColors.primaryColor,
-              fontWeight: fontWeight ?? FontWeight.w400),
+    from: animateDistance ?? 10,
+    delay: Duration(milliseconds: delayTime ?? 10),
+    curve: curvingStyle ?? Curves.fastEaseInToSlowEaseOut,
+    child: Padding(
+      padding: paddingSize ?? const EdgeInsets.all(8.0),
+      child: textC(
+        overflow: textOverFlow,
+        text,
+        preText: preText ?? '',
+        postText: postText ?? '',
+        maxLines: maxLinesSize,
+        textAlign: alignment ?? TextAlign.start,
+        style: TextStyle(
+          fontSize: fontSize ?? AppFontSize.s14,
+          color: textColor ?? AppColors.primaryColor,
+          fontWeight: fontWeight ?? FontWeight.w400,
         ),
-      ));
+      ),
+    ),
+  );
 }
 
 Widget fadedIconText({
@@ -283,30 +282,32 @@ Widget fadedIconText({
   double? animateDistance,
 }) {
   return FadeInDown(
-      from: animateDistance ?? 10,
-      delay: Duration(milliseconds: delayTime ?? 10),
-      curve: curvingStyle ?? Curves.fastEaseInToSlowEaseOut,
-      child: Padding(
-        padding: paddingSize ?? const EdgeInsets.all(8.0),
-        child: Wrap(
-          children: [
-            icon ?? Container(),
-            if (icon != null) getCube(2, context),
-            textC(
-              overflow: textOverFlow,
-              text,
-              preText: preText ?? '',
-              postText: postText ?? '',
-              maxLines: maxLinesSize,
-              textAlign: alignment ?? TextAlign.start,
-              style: TextStyle(
-                  fontSize: fontSize ?? AppFontSize.s14,
-                  color: textColor ?? AppColors.primaryColor,
-                  fontWeight: fontWeight ?? FontWeight.w400),
+    from: animateDistance ?? 10,
+    delay: Duration(milliseconds: delayTime ?? 10),
+    curve: curvingStyle ?? Curves.fastEaseInToSlowEaseOut,
+    child: Padding(
+      padding: paddingSize ?? const EdgeInsets.all(8.0),
+      child: Wrap(
+        children: [
+          icon ?? Container(),
+          if (icon != null) getCube(2, context),
+          textC(
+            overflow: textOverFlow,
+            text,
+            preText: preText ?? '',
+            postText: postText ?? '',
+            maxLines: maxLinesSize,
+            textAlign: alignment ?? TextAlign.start,
+            style: TextStyle(
+              fontSize: fontSize ?? AppFontSize.s14,
+              color: textColor ?? AppColors.primaryColor,
+              fontWeight: fontWeight ?? FontWeight.w400,
             ),
-          ],
-        ),
-      ));
+          ),
+        ],
+      ),
+    ),
+  );
 }
 
 Widget appFooter(context) {
@@ -317,10 +318,12 @@ Widget appFooter(context) {
       children: [
         const Divider(),
         Center(
-          child: textC("LKE GROUP MANAGEMENT & SERVICES ©",
-              textAlign: TextAlign.center),
+          child: textC(
+            "PRONTOSHOP GROUP MANAGEMENT & SERVICES ©",
+            textAlign: TextAlign.center,
+          ),
         ),
-        getCube(1, context)
+        getCube(1, context),
       ],
     ),
   );
@@ -328,45 +331,47 @@ Widget appFooter(context) {
 
 Widget appCancelButton(context, {EdgeInsets? margin, Function()? onTap}) {
   return GestureDetector(
-    onTap: onTap ??
+    onTap:
+        onTap ??
         () {
           NaviCubit.get(context).pop(context);
         },
     child: Container(
-        margin: margin ?? const EdgeInsets.only(top: 40, left: 30),
-        alignment: Alignment.topLeft,
-        //padding: const EdgeInsets.all(30),
-        height: getHeight(10, context),
-        decoration: const BoxDecoration(
-            shape: BoxShape.circle, color: AppColors.darkColor),
-        child: const Center(
-            child: Icon(
-          Ionicons.close_outline,
-          color: Colors.white,
-          size: 25,
-        ))),
+      margin: margin ?? const EdgeInsets.only(top: 40, left: 30),
+      alignment: Alignment.topLeft,
+      //padding: const EdgeInsets.all(30),
+      height: getHeight(10, context),
+      decoration: const BoxDecoration(
+        shape: BoxShape.circle,
+        color: AppColors.darkColor,
+      ),
+      child: const Center(
+        child: Icon(Ionicons.close_outline, color: Colors.white, size: 25),
+      ),
+    ),
   );
 }
 
 Widget appBackButton(context, {EdgeInsets? margin, Function()? onTap}) {
   return GestureDetector(
-    onTap: onTap ??
+    onTap:
+        onTap ??
         () {
           NaviCubit.get(context).pop(context);
         },
     child: Container(
-        margin: margin ?? const EdgeInsets.only(top: 40, left: 30),
-        alignment: Alignment.topLeft,
-        //padding: const EdgeInsets.all(30),
-        height: getHeight(10, context),
-        decoration: const BoxDecoration(
-            shape: BoxShape.circle, color: AppColors.darkColor),
-        child: const Center(
-            child: Icon(
-          Icons.arrow_back_ios_new,
-          color: Colors.white,
-          size: 25,
-        ))),
+      margin: margin ?? const EdgeInsets.only(top: 40, left: 30),
+      alignment: Alignment.topLeft,
+      //padding: const EdgeInsets.all(30),
+      height: getHeight(10, context),
+      decoration: const BoxDecoration(
+        shape: BoxShape.circle,
+        color: AppColors.darkColor,
+      ),
+      child: const Center(
+        child: Icon(Icons.arrow_back_ios_new, color: Colors.white, size: 25),
+      ),
+    ),
   );
 }
 
@@ -379,13 +384,16 @@ Widget appMenuButton(context, bool isOpen) {
       padding: const EdgeInsets.all(15),
       height: getHeight(10, context),
       decoration: const BoxDecoration(
-          shape: BoxShape.circle, color: AppColors.darkColor),
+        shape: BoxShape.circle,
+        color: AppColors.darkColor,
+      ),
       child: Center(
-          child: Icon(
-        isOpen ? Icons.close_rounded : Icons.menu,
-        color: Colors.white,
-        size: 30,
-      )),
+        child: Icon(
+          isOpen ? Icons.close_rounded : Icons.menu,
+          color: Colors.white,
+          size: 30,
+        ),
+      ),
     ),
   );
 }
@@ -422,14 +430,17 @@ Widget loadButtonOutline({
           ),
           elevation: buttonElevation ?? 00,
           side: BorderSide(
-              color: AppColors.primaryColor, width: borderWidth ?? 5),
+            color: AppColors.primaryColor,
+            width: borderWidth ?? 5,
+          ),
         ),
         onPressed: onPressed,
         child: textC(
           buttonText,
           style: TextStyle(
-              fontSize: fontSize ?? AppFontSize.s16,
-              color: textColor ?? AppColors.darkColor),
+            fontSize: fontSize ?? AppFontSize.s16,
+            color: textColor ?? AppColors.darkColor,
+          ),
         ),
       ),
     ),
@@ -437,16 +448,17 @@ Widget loadButtonOutline({
 }
 
 ///For photo preview
-Widget previewImage(
-    {double padding = 5.0,
-    Color backgroundColor = Colors.transparent,
-    double photoRadius = 15.0,
-    required fileUser,
-    BoxFit fit = BoxFit.fill,
-    bool isUrl = true,
-    bool editable = false,
-    VoidCallback? onTap,
-    required context}) {
+Widget previewImage({
+  double padding = 5.0,
+  Color backgroundColor = Colors.transparent,
+  double photoRadius = 15.0,
+  required fileUser,
+  BoxFit fit = BoxFit.fill,
+  bool isUrl = true,
+  bool editable = false,
+  VoidCallback? onTap,
+  required context,
+}) {
   if (!isUrl) {
     try {
       fileUser = base64Decode(fileUser);
@@ -466,40 +478,40 @@ Widget previewImage(
           child: Padding(
             padding: EdgeInsets.all(padding),
             child: Center(
-                child: ClipRRect(
-                    borderRadius: BorderRadius.circular(photoRadius),
-                    child: isUrl
-                        ? CachedNetworkImage(
-                            fit: fit,
-                            imageUrl: fileUser,
-                            progressIndicatorBuilder: (context, url, progress) {
-                              return Center(child: loadingAnimation());
-                            },
-                            errorWidget: (context, url, error) {
-                              return Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  const Icon(
-                                    CupertinoIcons.photo,
-                                    size: 40,
-                                    color: AppColors.greyDark,
-                                  ),
-                                  textC(
-                                    "Not Uploaded",
-                                    style: const TextStyle(
-                                      fontSize: AppFontSize.s10,
-                                      color: AppColors.primaryDark,
-                                      fontWeight: FontWeight.w700,
-                                    ),
-                                  ),
-                                ],
-                              );
-                            })
-                        : Image.memory(
-                            fileUser,
-                            fit: fit,
-                          ))),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(photoRadius),
+                child: isUrl
+                    ? CachedNetworkImage(
+                        fit: fit,
+                        imageUrl: fileUser,
+                        progressIndicatorBuilder: (context, url, progress) {
+                          return Center(child: loadingAnimation());
+                        },
+                        errorWidget: (context, url, error) {
+                          return Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              const Icon(
+                                CupertinoIcons.photo,
+                                size: 40,
+                                color: AppColors.greyDark,
+                              ),
+                              textC(
+                                "Not Uploaded",
+                                style: const TextStyle(
+                                  fontSize: AppFontSize.s10,
+                                  color: AppColors.primaryDark,
+                                  fontWeight: FontWeight.w700,
+                                ),
+                              ),
+                            ],
+                          );
+                        },
+                      )
+                    : Image.memory(fileUser, fit: fit),
+              ),
+            ),
           ),
         ),
         Visibility(
@@ -512,8 +524,9 @@ Widget previewImage(
               width: 35,
               height: 35,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(100),
-                  color: Colors.black12),
+                borderRadius: BorderRadius.circular(100),
+                color: Colors.black12,
+              ),
               child: const Icon(
                 Icons.mode_edit_outline_outlined,
                 color: Colors.black,
@@ -537,32 +550,29 @@ coverPreviewImage(fileUser) {
   // return isUrl
   //     ?
   return CachedNetworkImage(
-      fit: BoxFit.cover,
-      imageUrl: fileUser,
-      progressIndicatorBuilder: (context, url, progress) {
-        return Center(child: loadingAnimation());
-      },
-      errorWidget: (context, url, error) {
-        return Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const Icon(
-              CupertinoIcons.photo,
-              size: 40,
-              color: AppColors.greyDark,
+    fit: BoxFit.cover,
+    imageUrl: fileUser,
+    progressIndicatorBuilder: (context, url, progress) {
+      return Center(child: loadingAnimation());
+    },
+    errorWidget: (context, url, error) {
+      return Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          const Icon(CupertinoIcons.photo, size: 40, color: AppColors.greyDark),
+          textC(
+            "Not Uploaded",
+            style: const TextStyle(
+              fontSize: AppFontSize.s10,
+              color: AppColors.primaryDark,
+              fontWeight: FontWeight.w700,
             ),
-            textC(
-              "Not Uploaded",
-              style: const TextStyle(
-                fontSize: AppFontSize.s10,
-                color: AppColors.primaryDark,
-                fontWeight: FontWeight.w700,
-              ),
-            ),
-          ],
-        );
-      });
+          ),
+        ],
+      );
+    },
+  );
   // : Image.memory(
   //     fileUser,
   //     fit: BoxFit.cover,
@@ -601,7 +611,8 @@ Widget buildLegendItem(Color color, String label) {
             borderRadius: BorderRadius.circular(20),
             color: color, // Color is now part of BoxDecoration
             border: Border.all(
-                color: Colors.black), // Optional: border for visibility
+              color: Colors.black,
+            ), // Optional: border for visibility
           ),
         ),
         const SizedBox(width: 10), // Space between the color box and text
@@ -619,17 +630,19 @@ Widget getSkeletonLoading() {
       // if (stateLocalData is GettingLocalData ||
       //     stateRemoteData is GettingData) {
       return Wrap(
-          alignment: WrapAlignment.center,
-          runSpacing: 50,
-          children: List.generate(10, (index) {
-            return Container(
-              height: getHeight(20, context),
-              width: getWidth(90, context),
-              decoration: BoxDecoration(
-                  color: Colors.grey.withOpacity(0.5),
-                  borderRadius: BorderRadius.circular(20)),
-            );
-          }));
+        alignment: WrapAlignment.center,
+        runSpacing: 50,
+        children: List.generate(10, (index) {
+          return Container(
+            height: getHeight(20, context),
+            width: getWidth(90, context),
+            decoration: BoxDecoration(
+              color: Colors.grey.withOpacity(0.5),
+              borderRadius: BorderRadius.circular(20),
+            ),
+          );
+        }),
+      );
       // }
       // else {
       //   return Container();
@@ -642,16 +655,14 @@ paymentStatusWidget({required PaymentStatus paymentStatus}) {
   Widget paymentStatusReturn;
   switch (paymentStatus) {
     case PaymentStatus.SUCCESS:
-      paymentStatusReturn = Image.asset(
-        AppAssets.confirmedGif,
-        scale: 7,
-      );
+      paymentStatusReturn = Image.asset(AppAssets.confirmedGif, scale: 7);
     case PaymentStatus.FAILED:
       paymentStatusReturn = Image.asset(AppAssets.errorGif);
     case PaymentStatus.REFUNDED || PaymentStatus.PENDING:
       paymentStatusReturn = FadeOutDownBig(
         child: const Center(
-            child: Icon(Icons.warning_amber, color: Colors.orange, size: 120)),
+          child: Icon(Icons.warning_amber, color: Colors.orange, size: 120),
+        ),
       );
   }
   return SizedBox(
@@ -668,7 +679,9 @@ appCustomBar(String text, context, {Function()? onTap}) {
     title: textC(
       text,
       style: const TextStyle(
-          fontWeight: FontWeight.w600, fontSize: AppFontSize.s16),
+        fontWeight: FontWeight.w600,
+        fontSize: AppFontSize.s16,
+      ),
     ),
     leading: Padding(
       padding: const EdgeInsets.all(15),
@@ -685,7 +698,9 @@ appCustomCancelBar(String text, context, {Function()? onTap}) {
     title: textC(
       text,
       style: const TextStyle(
-          fontWeight: FontWeight.w600, fontSize: AppFontSize.s16),
+        fontWeight: FontWeight.w600,
+        fontSize: AppFontSize.s16,
+      ),
     ),
     leading: Padding(
       padding: const EdgeInsets.all(15),
@@ -695,24 +710,31 @@ appCustomCancelBar(String text, context, {Function()? onTap}) {
   );
 }
 
-appSliverCustomCancelBar(String text, context,
-    {Function()? onTap, double? paddingSize = 50}) {
+appSliverCustomCancelBar(
+  String text,
+  context, {
+  Function()? onTap,
+  double? paddingSize = 50,
+}) {
   return SliverAppBar(
     toolbarHeight: getHeight(10, context),
     pinned: true,
     expandedHeight: 250,
     flexibleSpace: FlexibleSpaceBar(
       title: fadedText(
-          context: context,
-          text: text,
-          textColor: AppColors.primaryLight,
-          paddingSize: const EdgeInsets.only(bottom: 10),
-          fontWeight: FontWeight.w600,
-          fontSize: 18),
+        context: context,
+        text: text,
+        textColor: AppColors.primaryLight,
+        paddingSize: const EdgeInsets.only(bottom: 10),
+        fontWeight: FontWeight.w600,
+        fontSize: 18,
+      ),
       centerTitle: true,
       background: Padding(
         padding: EdgeInsets.symmetric(
-            horizontal: paddingSize!, vertical: paddingSize + 20),
+          horizontal: paddingSize!,
+          vertical: paddingSize + 20,
+        ),
         child: appLogoPreview(context: context),
       ),
     ),
@@ -724,28 +746,38 @@ appSliverCustomCancelBar(String text, context,
   );
 }
 
-sendAppNotification(
-    {required String title,
-    required String message,
-    required NotificationsType notificationsType}) async {
+sendAppNotification({
+  required String title,
+  required String message,
+  required NotificationsType notificationsType,
+}) async {
   if (checkNotificationButtonToggleStatus(
-      ToggleButtonModel(notificationsType.name, true))) {
+    ToggleButtonModel(notificationsType.name, true),
+  )) {
     return await AwesomeNotifications().createNotification(
-        content: NotificationContent(
-      id: 10,
-      largeIcon: AppAssets.appLogo,
-      channelKey: 'basic_channel',
-      actionType: ActionType.Default,
-      title: getLocaleText(title),
-      body: getLocaleText(message),
-    ));
+      content: NotificationContent(
+        id: 10,
+        largeIcon: AppAssets.appLogo,
+        channelKey: 'basic_channel',
+        actionType: ActionType.Default,
+        title: getLocaleText(title),
+        body: getLocaleText(message),
+      ),
+    );
   }
 }
 
-EdgeInsets appCustomPadding(
-    {required double horizontal, required double vertical, required context}) {
-  return EdgeInsets.fromLTRB(horizontal, vertical, horizontal,
-      isKeyboardOpen(context) ? vertical + getHeight(30, context) : vertical);
+EdgeInsets appCustomPadding({
+  required double horizontal,
+  required double vertical,
+  required context,
+}) {
+  return EdgeInsets.fromLTRB(
+    horizontal,
+    vertical,
+    horizontal,
+    isKeyboardOpen(context) ? vertical + getHeight(30, context) : vertical,
+  );
 }
 
 Future<void> fromImageSavePDF(Uint8List screenShot) async {
@@ -757,9 +789,7 @@ Future<void> fromImageSavePDF(Uint8List screenShot) async {
     widgets.Page(
       pageFormat: PdfPageFormat.roll80,
       build: (context) {
-        return widgets.Center(
-          child: widgets.Image(image),
-        );
+        return widgets.Center(child: widgets.Image(image));
       },
     ),
   );
@@ -843,9 +873,7 @@ void printC(message, {bool isError = false}) {
   }
 }
 
-void shareFile(
-  path,
-) async {
+void shareFile(path) async {
   try {
     await Share.shareXFiles([XFile(path)]);
   } catch (e) {

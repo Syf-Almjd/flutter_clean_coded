@@ -1,6 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../presentation/Shared/widgets_builder.dart';
+import 'package:flutter_clean_coded/src/presentation/shared/widgets_builder.dart';
 
 class AppBlocObserver extends BlocObserver {
   static init() {

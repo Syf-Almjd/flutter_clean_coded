@@ -2,7 +2,6 @@ import 'package:flutter_clean_coded/src/presentation/modules/authentication/auth
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../core/utils/managers/app_enums.dart';
 import '../../modules/splash/splash_screen.dart';
 import '../../shared/components.dart';
 
@@ -28,7 +27,9 @@ class NaviCubit extends Cubit<NaviState> {
     // } else {
 
     await Navigator.push(
-        context, MaterialPageRoute(builder: (context) => widget));
+      context,
+      MaterialPageRoute(builder: (context) => widget),
+    );
     emit(PagePushed(pageName: widget.toString()));
     // }
   }

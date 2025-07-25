@@ -507,5 +507,5 @@ final Map<String, String> chineseTranslations = {
   "At least 8 characters long": "密码必须至少包含8个字符",
   "Please add one uppercase letter": "请添加一个大写字母",
   "Please add one lowercase letter": "请添加一个小写字母",
-  "Please add one digit": "请添加一个数字"
+  "Please add one digit": "请添加一个数字",
 };

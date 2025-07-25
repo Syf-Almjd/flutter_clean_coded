@@ -12,10 +12,10 @@ import 'package:flutter_clean_coded/src/core/utils/managers/app_extensions.dart'
 import 'package:flutter_clean_coded/src/core/utils/managers/app_lists.dart';
 import 'package:flutter_clean_coded/src/domain/usecases/user_usecase.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
+import 'package:flutter_clean_coded/src/presentation/state/navigation_cubit/navi_cubit.dart';
 import 'package:toastification/toastification.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../state/navigation_cubit/navi_cubit.dart';
 import 'widgets_builder.dart';
 
 bool isGuestMode = false;
@@ -40,8 +40,11 @@ Widget loadingAnimation({Widget? loadingType}) {
     return loadingType;
   } else {
     return Center(
-        child: LoadingAnimationWidget.waveDots(
-            color: AppColors.primaryColor, size: 30));
+      child: LoadingAnimationWidget.waveDots(
+        color: AppColors.primaryColor,
+        size: 30,
+      ),
+    );
   }
 }
 
@@ -58,7 +61,7 @@ Widget padBox({size}) {
 Widget textFieldA({
   // here if you put in before the { it is required by default but if you put after it you need to say required
   Key?
-      key, //the difference is that inside {} it can be optional if you want to enforce input when call use "required"
+  key, //the difference is that inside {} it can be optional if you want to enforce input when call use "required"
   required TextEditingController controller,
   required String hintText,
   bool? obscureText = false, //optional
@@ -113,13 +116,14 @@ Widget buttonA({
       width: (height ?? 275).toDouble(),
       decoration: BoxDecoration(
         color: (color ?? AppColors.primaryColor),
-        borderRadius: BorderRadius.circular(
-          (borderSize ?? 17).toDouble(),
-        ),
+        borderRadius: BorderRadius.circular((borderSize ?? 17).toDouble()),
       ),
       child: Center(
-        child: textC(buttonText,
-            textAlign: TextAlign.center, style: const TextStyle(fontSize: 22)),
+        child: textC(
+          buttonText,
+          textAlign: TextAlign.center,
+          style: const TextStyle(fontSize: 22),
+        ),
       ),
     ),
   );
@@ -127,15 +131,15 @@ Widget buttonA({
 
 //Show a toast
 void showToast(String text, Color color, context) => toastification.show(
-      context: context,
-      title: textC(text),
-      alignment: Alignment.bottomCenter,
-      primaryColor: color,
-      dragToClose: true,
-      showProgressBar: true,
-      icon: const Icon(Icons.info_outlined),
-      autoCloseDuration: const Duration(seconds: 3),
-    );
+  context: context,
+  title: textC(text),
+  alignment: Alignment.bottomCenter,
+  primaryColor: color,
+  dragToClose: true,
+  showProgressBar: true,
+  icon: const Icon(Icons.info_outlined),
+  autoCloseDuration: const Duration(seconds: 3),
+);
 
 Widget getDivider(context) {
   return Divider(
@@ -147,9 +151,7 @@ Widget getDivider(context) {
 }
 
 //Validate Text field
-validateForm(
-  GlobalKey<FormState> validateKey,
-) {
+validateForm(GlobalKey<FormState> validateKey) {
   if (validateKey.currentState!.validate()) {
     validateKey.currentState!.save();
     return true;
@@ -186,26 +188,28 @@ getFormatDate(date) {
   return outputFormat.format(inputDate);
 }
 
-void showLottieChoiceDialog(
-    {required context,
-    String? title,
-    String? postTitle,
-    String? content,
-    isInfoDialog = false,
-    Color? iconColor,
-    IconData icon = Icons.question_mark_outlined,
-    String yesText = "Yes",
-    String noText = "No",
-    required VoidCallback onYes,
-    VoidCallback? onNo}) {
+void showLottieChoiceDialog({
+  required context,
+  String? title,
+  String? postTitle,
+  String? content,
+  isInfoDialog = false,
+  Color? iconColor,
+  IconData icon = Icons.question_mark_outlined,
+  String yesText = "Yes",
+  String noText = "No",
+  required VoidCallback onYes,
+  VoidCallback? onNo,
+}) {
   showDialog(
     context: context,
     builder: (BuildContext context) {
       return FadeInDown(
         duration: const Duration(milliseconds: 300),
         child: Dialog(
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
+          ),
           elevation: 16,
           child: Padding(
             padding: const EdgeInsets.all(16.0),
@@ -314,103 +318,110 @@ void showLottieChoiceDialog(
   );
 }
 
-Future showChoiceDialog(
-    {required BuildContext context,
-    String? title,
-    String? content,
-    bool showCancel = true,
-    String yesText = "Ok",
-    String noText = "Cancel",
-    required Function onYes,
-    Function? onNo}) {
+Future showChoiceDialog({
+  required BuildContext context,
+  String? title,
+  String? content,
+  bool showCancel = true,
+  String yesText = "Ok",
+  String noText = "Cancel",
+  required Function onYes,
+  Function? onNo,
+}) {
   return (showCupertinoDialog(
-      context: context,
-      barrierDismissible: true,
-      builder: (context) {
-        return AlertDialog(
-          backgroundColor: Colors.white,
-          surfaceTintColor: Colors.white,
-          shadowColor: Colors.white,
-          title: textC(title ?? ""),
-          titleTextStyle: const TextStyle(
-              fontSize: AppFontSize.s18,
-              fontWeight: FontWeight.w700,
-              color: AppColors.primaryDark),
-          actionsPadding:
-              const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-          content: textC(content ?? "Are you Sure?"),
-          actions: [
-            showCancel
-                ? TextButton(
-                    child: textC(noText),
-                    onPressed: () {
-                      NaviCubit.get(context).pop(context);
-                      if (onNo != null) {
-                        onNo();
-                      }
-                    },
-                  )
-                : Container(),
-            TextButton(
-              child: textC(yesText),
-              onPressed: () {
-                NaviCubit.get(context).pop(context);
-                onYes();
-              },
-            ),
-          ],
-        );
-      }));
+    context: context,
+    barrierDismissible: true,
+    builder: (context) {
+      return AlertDialog(
+        backgroundColor: Colors.white,
+        surfaceTintColor: Colors.white,
+        shadowColor: Colors.white,
+        title: textC(title ?? ""),
+        titleTextStyle: const TextStyle(
+          fontSize: AppFontSize.s18,
+          fontWeight: FontWeight.w700,
+          color: AppColors.primaryDark,
+        ),
+        actionsPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+        content: textC(content ?? "Are you Sure?"),
+        actions: [
+          showCancel
+              ? TextButton(
+                  child: textC(noText),
+                  onPressed: () {
+                    NaviCubit.get(context).pop(context);
+                    if (onNo != null) {
+                      onNo();
+                    }
+                  },
+                )
+              : Container(),
+          TextButton(
+            child: textC(yesText),
+            onPressed: () {
+              NaviCubit.get(context).pop(context);
+              onYes();
+            },
+          ),
+        ],
+      );
+    },
+  ));
 }
 
 Future showAppLanguageDialog({required BuildContext context}) {
   return (showCupertinoDialog(
-      context: context,
-      barrierDismissible: true,
-      builder: (context) {
-        return AlertDialog(
-          backgroundColor: Colors.white,
-          surfaceTintColor: Colors.white,
-          shadowColor: Colors.white,
-          title: textC("Change Language:"),
-          titleTextStyle: TextStyle(
-              fontSize: getWidth(4, context),
-              fontWeight: FontWeight.w700,
-              color: AppColors.primaryDark),
-          actionsAlignment: MainAxisAlignment.spaceAround,
-          actions: [
-            Column(
-              children: [
-                ...List.generate(
-                  AppLocale.values.length,
-                  (index) {
-                    return Container(
-                      width: getWidth(70, context),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: Colors.grey.withOpacity(0.2)),
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 10, vertical: 15),
-                      margin: const EdgeInsets.symmetric(
-                          horizontal: 10, vertical: 15),
-                      child: GestureDetector(
-                        onTap: () {
-                          // NaviCubit.get(context).pop(context);
-                          // LocalDataCubit.get(context)
-                          //     .changeLocale(AppLocale.values[index]);
-                          // NaviCubit.get(context).navigateToHome(context);
-                        },
-                        child: Text(
-                            "   ${index + 1}  -    ${AppLists.appSupportedLanguages[index]}"),
-                      ),
-                    );
-                  },
-                )
-              ],
-            )
-          ],
-        );
-      }));
+    context: context,
+    barrierDismissible: true,
+    builder: (context) {
+      return AlertDialog(
+        backgroundColor: Colors.white,
+        surfaceTintColor: Colors.white,
+        shadowColor: Colors.white,
+        title: textC("Change Language:"),
+        titleTextStyle: TextStyle(
+          fontSize: getWidth(4, context),
+          fontWeight: FontWeight.w700,
+          color: AppColors.primaryDark,
+        ),
+        actionsAlignment: MainAxisAlignment.spaceAround,
+        actions: [
+          Column(
+            children: [
+              ...List.generate(AppLocale.values.length, (index) {
+                return Container(
+                  width: getWidth(70, context),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Colors.grey.withOpacity(0.2),
+                  ),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 10,
+                    vertical: 15,
+                  ),
+                  margin: const EdgeInsets.symmetric(
+                    horizontal: 10,
+                    vertical: 15,
+                  ),
+                  child: GestureDetector(
+                    onTap: () {
+                      // NaviCubit.get(context).pop(context);
+                      // LocalDataCubit.get(context)
+                      //     .changeLocale(AppLocale.values[index]);
+                      // NaviCubit.get(context).navigateToHome(context);
+                    },
+                    child: Text(
+                      "   ${index + 1}  -    ${AppLists.appSupportedLanguages[index]}",
+                    ),
+                  ),
+                );
+              }),
+            ],
+          ),
+        ],
+      );
+    },
+  ));
 }
 
 Future<TimeOfDay?> getTime({
@@ -455,17 +466,18 @@ Future<String> getAppUserPhoto(context) async {
 
 void openUrl(String url) {
   var openUrl = Uri.parse(url);
-  launchUrl(
-    openUrl,
-    mode: LaunchMode.externalApplication,
-  );
+  launchUrl(openUrl, mode: LaunchMode.externalApplication);
 }
 
 String generateRandomString(int length) {
   const chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
   final random = Random();
-  return String.fromCharCodes(Iterable.generate(
-      length, (_) => chars.codeUnitAt(random.nextInt(chars.length))));
+  return String.fromCharCodes(
+    Iterable.generate(
+      length,
+      (_) => chars.codeUnitAt(random.nextInt(chars.length)),
+    ),
+  );
 }
 
 int generateRandomInt(int length) {

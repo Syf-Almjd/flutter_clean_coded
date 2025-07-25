@@ -6,10 +6,7 @@ import 'package:flutter_clean_coded/src/core/utils/managers/app_assets.dart';
 class CustomError extends StatelessWidget {
   final FlutterErrorDetails errorDetails;
 
-  const CustomError({
-    super.key,
-    required this.errorDetails,
-  });
+  const CustomError({super.key, required this.errorDetails});
 
   @override
   Widget build(BuildContext context) {
@@ -27,9 +24,10 @@ class CustomError extends StatelessWidget {
                   : 'Oups! Something went wrong!',
               textAlign: TextAlign.center,
               style: const TextStyle(
-                  color: kDebugMode ? Colors.red : Colors.black,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 21),
+                color: kDebugMode ? Colors.red : Colors.black,
+                fontWeight: FontWeight.bold,
+                fontSize: 21,
+              ),
             ),
             const SizedBox(height: 12),
             const Text(

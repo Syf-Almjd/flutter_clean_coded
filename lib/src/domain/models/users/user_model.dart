@@ -62,10 +62,11 @@ class UserModel {
       username: "Loading",
       firstName: "Loading",
       image: ImageModel(
-          imageId: 0,
-          imageIndex: 0,
-          imageUrl: 'https://loading.io/assets/mod/spinner/spinner/lg.gif',
-          uploadedAt: ''),
+        imageId: 0,
+        imageIndex: 0,
+        imageUrl: 'https://loading.io/assets/mod/spinner/spinner/lg.gif',
+        uploadedAt: '',
+      ),
       lastName: "",
       email: "Loading",
       password: "",
@@ -112,7 +113,7 @@ class UserModel {
       'phone': phone,
       'password': nullPass,
       'gender': gender,
-      "image": image.toUploadJson()
+      "image": image.toUploadJson(),
     };
   }
 }

@@ -15,7 +15,11 @@ class ImageModel {
   factory ImageModel.fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return ImageModel(
-          imageId: 0, imageIndex: 0, imageUrl: '', uploadedAt: '');
+        imageId: 0,
+        imageIndex: 0,
+        imageUrl: '',
+        uploadedAt: '',
+      );
     }
     String image = json['imageUrl'] ?? "";
     if (json['imageId'] != 0) {
@@ -33,25 +37,14 @@ class ImageModel {
   }
 
   factory ImageModel.empty() {
-    return ImageModel(
-      imageId: 0,
-      imageIndex: 0,
-      imageUrl: "",
-      uploadedAt: "",
-    );
+    return ImageModel(imageId: 0, imageIndex: 0, imageUrl: "", uploadedAt: "");
   }
 
   Map<String, dynamic> toUploadJson() {
     if (imageUrl == "null") {
-      return {
-        'imageIndex': null,
-        'imageData': null,
-      };
+      return {'imageIndex': null, 'imageData': null};
     }
-    return {
-      'imageIndex': imageIndex,
-      'imageData': imageUrl,
-    };
+    return {'imageIndex': imageIndex, 'imageData': imageUrl};
   }
 
   Map<String, dynamic> toFullJson() {

@@ -4,9 +4,7 @@ import 'package:flutter_clean_coded/src/presentation/state/navigation_cubit/navi
 import 'package:flutter/material.dart';
 
 class NoConnectionError extends StatelessWidget {
-  const NoConnectionError({
-    super.key,
-  });
+  const NoConnectionError({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,16 +22,19 @@ class NoConnectionError extends StatelessWidget {
                 'Connection Error!',
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                    color: Colors.red,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 21),
+                  color: Colors.red,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 21,
+                ),
               ),
               const SizedBox(height: 40),
               const Text(
                 "We are unable to connect to our server, please check your connection or try again another time.",
                 textAlign: TextAlign.center,
-                style:
-                    TextStyle(color: Colors.black, fontSize: AppFontSize.s14),
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: AppFontSize.s14,
+                ),
               ),
               const SizedBox(height: 40),
               OutlinedButton(
@@ -43,11 +44,12 @@ class NoConnectionError extends StatelessWidget {
                 child: const Text(
                   "Retry",
                   style: TextStyle(
-                      fontSize: AppFontSize.s16,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black),
+                    fontSize: AppFontSize.s16,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  ),
                 ),
-              )
+              ),
             ],
           ),
         ),

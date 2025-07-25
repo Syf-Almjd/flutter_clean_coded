@@ -1,15 +1,10 @@
-import 'package:flutter_clean_coded/src/core/localization/app_locale.dart';
 import 'package:flutter_clean_coded/src/core/themes/styles/app_colors.dart';
 import 'package:flutter_clean_coded/src/core/themes/styles/app_fonts.dart';
-import 'package:flutter_clean_coded/src/core/utils/managers/app_assets.dart';
-import 'package:flutter_clean_coded/src/core/utils/managers/app_enums.dart';
 // import 'package:flutter_clean_coded/src/presentation/Shared/components.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_clean_coded/src/presentation/modules/authentication/user_auth/authentication_page.dart';
 import 'package:flutter_clean_coded/src/presentation/modules/intro/intro_screen.dart';
 import 'package:flutter_clean_coded/src/presentation/shared/components.dart';
 import 'package:flutter_clean_coded/src/presentation/shared/widgets_builder.dart';
-import 'package:lottie/lottie.dart';
 // import 'package:rive/rive.dart';
 
 // import '../../Shared/widgets_builder.dart';
@@ -36,8 +31,11 @@ class _SplashScreenState extends State<SplashScreen> {
             alignment: Alignment.topRight,
             child: OutlinedButton(
               onPressed: () {
-                showToast("Only English is supported for now",
-                    AppColors.primaryColor, context);
+                showToast(
+                  "Only English is supported for now",
+                  AppColors.primaryColor,
+                  context,
+                );
                 // LocalDataCubit.get(context).changeLocale(
                 //     appDefaultLocale == AppLocale.english
                 //         ? AppLocale.chinese
@@ -49,10 +47,11 @@ class _SplashScreenState extends State<SplashScreen> {
           ),
           Center(
             child: appLogoPreview(
-                context: context,
-                width: getWidth(100, context),
-                height: getHeight(8, context),
-                wBackground: false),
+              context: context,
+              width: getWidth(100, context),
+              height: getHeight(8, context),
+              wBackground: false,
+            ),
           ),
           textC(
             "Welcome to LKE Community!",
@@ -64,10 +63,11 @@ class _SplashScreenState extends State<SplashScreen> {
             textAlign: TextAlign.center,
           ),
           lottieNetworkContainer(
-              height: getHeight(40, context),
-              context: context,
-              url:
-                  "https://lottie.host/56eabded-b759-4908-856f-067582778316/YHen8tgqR0.json"),
+            height: getHeight(40, context),
+            context: context,
+            url:
+                "https://lottie.host/56eabded-b759-4908-856f-067582778316/YHen8tgqR0.json",
+          ),
           // Center(
           //   child: RiveAnimation.network(
           //     'https://rive.app/community/files/15060-29047-ballin-interactive/',

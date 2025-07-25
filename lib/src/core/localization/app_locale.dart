@@ -13,7 +13,7 @@ String getLocaleText(text) {
 // Create a lowercase version of the map for lookups
 Map<String, String> lowercaseChineseTranslations = {
   for (var entry in chineseTranslations.entries)
-    entry.key.toLowerCase(): entry.value
+    entry.key.toLowerCase(): entry.value,
 };
 
 // Function to get the Chinese translation for a given key

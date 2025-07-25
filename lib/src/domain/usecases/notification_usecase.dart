@@ -8,8 +8,9 @@ class ToggleButtonModel {
 }
 
 bool checkNotificationButtonToggleStatus(ToggleButtonModel notification) {
-  return AppLists.notificationButtonsItemLists
-      .any((item) => item.name == notification.name && item.isToggled == true);
+  return AppLists.notificationButtonsItemLists.any(
+    (item) => item.name == notification.name && item.isToggled == true,
+  );
 }
 
 bool checkSettingsButtonToggleStatus(ToggleButtonModel setting) {

@@ -24,8 +24,12 @@ class UserUsecase {
       userRole: "",
       userType: "",
       userStatus: "",
-      image:
-          ImageModel(imageId: 0, imageIndex: 0, imageUrl: "", uploadedAt: ""),
+      image: ImageModel(
+        imageId: 0,
+        imageIndex: 0,
+        imageUrl: "",
+        uploadedAt: "",
+      ),
       createdAt: DateTime.now(),
       updatedAt: DateTime.now(),
     );

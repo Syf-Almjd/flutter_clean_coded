@@ -6,8 +6,8 @@ import 'package:flutter_clean_coded/src/core/utils/managers/app_assets.dart';
 import 'package:flutter_clean_coded/src/presentation/Shared/widgets_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:flutter_clean_coded/src/presentation/shared/components.dart';
 
-import '../../../Shared/components.dart';
 import '../../../state/navigation_cubit/navi_cubit.dart';
 import 'change_password_screen.dart';
 
@@ -78,8 +78,10 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                   fontWeight: FontWeight.w900,
                 ),
                 fadedText(
-                  paddingSize:
-                      const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                  paddingSize: const EdgeInsets.symmetric(
+                    vertical: 5,
+                    horizontal: 10,
+                  ),
                   context: context,
                   text: "No worries!",
                   fontSize: AppFontSize.s14,
@@ -90,8 +92,11 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                   child: TextFormField(
                     validator: (value) {
                       if (value!.isEmpty || !value.contains('@')) {
-                        showToast("Your Email is incorrect!",
-                            AppColors.primaryColor, context);
+                        showToast(
+                          "Your Email is incorrect!",
+                          AppColors.primaryColor,
+                          context,
+                        );
                         return "Your Email is incorrect";
                       }
                       return null;
@@ -141,11 +146,9 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
 
   resetPassword(email, context) async {
     NaviCubit.get(context).navigate(
-        context,
-        ChangePasswordScreen(
-          userEmail: email,
-          isAnonRequest: true,
-        ));
+      context,
+      ChangePasswordScreen(userEmail: email, isAnonRequest: true),
+    );
     // await RemoteDataCubit.get(context).resetUserPassword(email, context).then(
     //   (resat) {
     //     if (resat) {

@@ -4,11 +4,10 @@ import 'package:flutter_clean_coded/src/core/localization/app_locale.dart';
 import 'package:flutter_clean_coded/src/core/themes/styles/app_colors.dart';
 import 'package:flutter_clean_coded/src/core/themes/styles/app_fonts.dart';
 import 'package:flutter_clean_coded/src/core/utils/managers/app_enums.dart';
+import 'package:flutter_clean_coded/src/domain/models/authentication/signup/user_signup_model.dart';
 import 'package:flutter_clean_coded/src/presentation/modules/authentication/user_auth/cubit/user_auth_page_cubit.dart';
-
-import '../../../../../domain/models/Authentication/signup/user_signup_model.dart';
-import '../../../../Shared/components.dart';
-import '../../../../Shared/widgets_builder.dart';
+import 'package:flutter_clean_coded/src/presentation/shared/components.dart';
+import 'package:flutter_clean_coded/src/presentation/shared/widgets_builder.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
@@ -38,8 +37,9 @@ class _SignupScreenState extends State<SignupScreen> {
             children: [
               IconButton(
                 onPressed: () {
-                  UserAuthPageCubit.get(context)
-                      .changeState(UserAuthPageInitial());
+                  UserAuthPageCubit.get(
+                    context,
+                  ).changeState(UserAuthPageInitial());
                 },
                 icon: Icon(
                   Icons.arrow_back_ios_new,
@@ -48,14 +48,13 @@ class _SignupScreenState extends State<SignupScreen> {
                 ),
               ),
               fadedText(
-                  context: context,
-                  text: "Welcome to LKE Group!",
-                  textColor: AppColors.darkColor,
-                  fontSize: AppFontSize.s16,
-                  fontWeight: FontWeight.w800),
-              SizedBox(
-                width: getWidth(10, context),
-              )
+                context: context,
+                text: "Welcome to LKE Group!",
+                textColor: AppColors.darkColor,
+                fontSize: AppFontSize.s16,
+                fontWeight: FontWeight.w800,
+              ),
+              SizedBox(width: getWidth(10, context)),
             ],
           ),
           getCube(5, context),
@@ -71,7 +70,8 @@ class _SignupScreenState extends State<SignupScreen> {
               controller: email,
               decoration: InputDecoration(
                 border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(200)),
+                  borderRadius: BorderRadius.circular(200),
+                ),
                 labelText: getLocaleText("Email"),
                 prefixIcon: const Icon(
                   Icons.email_outlined,
@@ -116,7 +116,8 @@ class _SignupScreenState extends State<SignupScreen> {
               obscureText: _isObscure,
               decoration: InputDecoration(
                 border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(200)),
+                  borderRadius: BorderRadius.circular(200),
+                ),
                 labelText: getLocaleText("Password"),
                 prefixIcon: const Icon(
                   Icons.password_outlined,
@@ -152,7 +153,8 @@ class _SignupScreenState extends State<SignupScreen> {
               obscureText: _isObscure,
               decoration: InputDecoration(
                 border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(200)),
+                  borderRadius: BorderRadius.circular(200),
+                ),
                 labelText: getLocaleText("Confirm Password"),
                 prefixIcon: const Icon(
                   Icons.safety_check_outlined,
@@ -189,17 +191,18 @@ class _SignupScreenState extends State<SignupScreen> {
           ),
           getCube(5, context),
           loadButton(
-              borderCurveSize: 10,
-              context: context,
-              buttonWidth: getWidth(100, context),
-              textWeight: FontWeight.w600,
-              fontSize: AppFontSize.s16,
-              buttonText: "Signup",
-              onPressed: () {
-                if (validateForm(_validateKey)) {
-                  submitRequest();
-                }
-              }),
+            borderCurveSize: 10,
+            context: context,
+            buttonWidth: getWidth(100, context),
+            textWeight: FontWeight.w600,
+            fontSize: AppFontSize.s16,
+            buttonText: "Signup",
+            onPressed: () {
+              if (validateForm(_validateKey)) {
+                submitRequest();
+              }
+            },
+          ),
         ],
       ),
     );

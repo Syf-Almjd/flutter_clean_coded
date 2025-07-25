@@ -6,9 +6,7 @@ import 'package:flutter_clean_coded/src/core/dependencies/setup/app_firebase_set
 import 'package:flutter_clean_coded/src/core/dependencies/setup/app_notifications_setup.dart';
 import 'package:flutter_clean_coded/src/core/utils/observers/app_bloc_obeserver.dart';
 import 'package:flutter_clean_coded/src/core/dependencies/app_dep_injector.dart';
-import 'package:flutter_clean_coded/src/data/remote/api/api_client.dart';
 import 'package:flutter_clean_coded/src/presentation/state/navigation_cubit/navi_cubit.dart';
-import 'package:pdf/widgets.dart';
 
 class AppDependencies {
   static Future<void> init() async {
@@ -26,11 +24,7 @@ class AppDependencies {
   }
 
   static List<BlocProvider> appBlocProviders() {
-    return [
-      BlocProvider<NaviCubit>(
-        create: (context) => NaviCubit(),
-      ),
-    ];
+    return [BlocProvider<NaviCubit>(create: (context) => NaviCubit())];
   }
 
   static void newUserPermissions() {

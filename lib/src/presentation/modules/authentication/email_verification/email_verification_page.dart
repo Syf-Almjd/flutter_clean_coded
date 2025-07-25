@@ -6,9 +6,9 @@ import 'package:flutter_clean_coded/src/core/utils/managers/app_assets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:flutter_clean_coded/src/presentation/shared/components.dart';
+import 'package:flutter_clean_coded/src/presentation/shared/widgets_builder.dart';
 
-import '../../../Shared/components.dart';
-import '../../../Shared/widgets_builder.dart';
 import '../../../state/navigation_cubit/navi_cubit.dart';
 
 class EmailVerificationPage extends StatefulWidget {
@@ -40,9 +40,7 @@ class _EmailVerificationPageState extends State<EmailVerificationPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: textC("Verify Email"),
-      ),
+      appBar: AppBar(title: textC("Verify Email")),
       body: ListView(
         children: [
           getCube(5, context),
@@ -50,8 +48,9 @@ class _EmailVerificationPageState extends State<EmailVerificationPage> {
             margin: EdgeInsets.symmetric(horizontal: getWidth(7, context)),
             padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: AppColors.grey.withOpacity(0.2)),
+              borderRadius: BorderRadius.circular(20),
+              color: AppColors.grey.withOpacity(0.2),
+            ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -64,8 +63,9 @@ class _EmailVerificationPageState extends State<EmailVerificationPage> {
                       child: Container(
                         padding: const EdgeInsets.all(20),
                         decoration: BoxDecoration(
-                            color: AppColors.primaryColor,
-                            borderRadius: BorderRadius.circular(20)),
+                          color: AppColors.primaryColor,
+                          borderRadius: BorderRadius.circular(20),
+                        ),
                         child: Icon(
                           Ionicons.ellipsis_horizontal_outline,
                           color: Colors.white,
@@ -74,26 +74,32 @@ class _EmailVerificationPageState extends State<EmailVerificationPage> {
                       ),
                     ),
                     Expanded(
-                        child: FadeInUp(
-                            from: 20,
-                            delay: const Duration(milliseconds: 500),
-                            child: Image.asset(AppAssets.forgotImage))),
+                      child: FadeInUp(
+                        from: 20,
+                        delay: const Duration(milliseconds: 500),
+                        child: Image.asset(AppAssets.forgotImage),
+                      ),
+                    ),
                   ],
                 ),
                 getCube(5, context),
                 fadedText(
-                    context: context,
-                    text: "Check your Email!",
-                    fontSize: AppFontSize.s14,
-                    alignment: TextAlign.start,
-                    fontWeight: FontWeight.w900),
+                  context: context,
+                  text: "Check your Email!",
+                  fontSize: AppFontSize.s14,
+                  alignment: TextAlign.start,
+                  fontWeight: FontWeight.w900,
+                ),
                 fadedText(
-                    paddingSize:
-                        const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-                    context: context,
-                    fontWeight: FontWeight.w700,
-                    text: "Email: $userEmail",
-                    fontSize: AppFontSize.s14),
+                  paddingSize: const EdgeInsets.symmetric(
+                    vertical: 5,
+                    horizontal: 10,
+                  ),
+                  context: context,
+                  fontWeight: FontWeight.w700,
+                  text: "Email: $userEmail",
+                  fontSize: AppFontSize.s14,
+                ),
                 getCube(2, context),
                 FadeInUp(
                   from: 10,
@@ -108,7 +114,8 @@ class _EmailVerificationPageState extends State<EmailVerificationPage> {
                     decoration: InputDecoration(
                       labelText: getLocaleText("OTP Code"),
                       border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(13)),
+                        borderRadius: BorderRadius.circular(13),
+                      ),
                       prefixIcon: const Icon(
                         Icons.do_not_disturb_on_total_silence_outlined,
                         color: AppColors.primaryColor,
@@ -134,20 +141,25 @@ class _EmailVerificationPageState extends State<EmailVerificationPage> {
                     TextButton(
                       onPressed: () {
                         showChoiceDialog(
-                            context: context,
-                            title: "Logout",
-                            content: "Are you sure you want to quit?",
-                            onYes: () {
-                              NaviCubit.get(context)
-                                  .navigateToSliderLogout(context);
-                            });
+                          context: context,
+                          title: "Logout",
+                          content: "Are you sure you want to quit?",
+                          onYes: () {
+                            NaviCubit.get(
+                              context,
+                            ).navigateToSliderLogout(context);
+                          },
+                        );
                       },
-                      child: textC("Logout",
-                          style: const TextStyle(fontSize: AppFontSize.s12)),
+                      child: textC(
+                        "Logout",
+                        style: const TextStyle(fontSize: AppFontSize.s12),
+                      ),
                     ),
                     ElevatedButton.icon(
                       style: ElevatedButton.styleFrom(
-                          backgroundColor: AppColors.primaryLight),
+                        backgroundColor: AppColors.primaryLight,
+                      ),
                       onPressed: () async {
                         checkVerify();
                       },
@@ -159,11 +171,13 @@ class _EmailVerificationPageState extends State<EmailVerificationPage> {
                       label: const Text(
                         "Verify & Continue",
                         style: TextStyle(
-                            color: AppColors.white, fontSize: AppFontSize.s14),
+                          color: AppColors.white,
+                          fontSize: AppFontSize.s14,
+                        ),
                       ),
                     ),
                   ],
-                )
+                ),
               ],
             ),
           ),

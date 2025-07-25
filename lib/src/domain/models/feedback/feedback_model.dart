@@ -1,8 +1,7 @@
 import 'dart:convert';
 
+import 'package:flutter_clean_coded/src/domain/models/general/image_model.dart';
 import 'package:flutter_clean_coded/src/presentation/Shared/widgets_builder.dart';
-
-import '../General/image_model.dart';
 
 List<FeedbackModel> feedbackListFromJson(dynamic parsed) {
   try {
@@ -64,8 +63,9 @@ class FeedbackModel {
       mobileNo: json['mobileNo'] ?? "",
       enquiry: json['enquiry'] ?? "",
       answer: json['answer'] ?? "",
-      image:
-          ImageModel.fromJson(json['image'] ?? ImageModel.empty().toFullJson()),
+      image: ImageModel.fromJson(
+        json['image'] ?? ImageModel.empty().toFullJson(),
+      ),
       contactStatus: json['contactStatus'] ?? "",
       createdAt: json['createdAt'] ?? "",
       updatedAt: json['updatedAt'] ?? "",

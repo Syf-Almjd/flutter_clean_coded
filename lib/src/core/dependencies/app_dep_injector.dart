@@ -14,12 +14,12 @@ class AppDependencyInjector {
     const secureStorageInstance = FlutterSecureStorage();
 
     getIt.registerSingleton<LocalStorageDatabase>(
-        LocalStorageDatabase(sharedPreferences: sharedPreferencesInstance));
+      LocalStorageDatabase(sharedPreferences: sharedPreferencesInstance),
+    );
 
     getIt.registerLazySingleton<SecureStorageDatabase>(
-        () => SecureStorageDatabase(
-              secureStorage: secureStorageInstance,
-            ));
+      () => SecureStorageDatabase(secureStorage: secureStorageInstance),
+    );
 
     // Register API-related services
     _registerApiServices(getIt);

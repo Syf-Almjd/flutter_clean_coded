@@ -7,8 +7,11 @@ class DatePickerWidget extends StatelessWidget {
   final String labeltext;
   final TextEditingController controller;
 
-  const DatePickerWidget(
-      {required this.labeltext, required this.controller, super.key});
+  const DatePickerWidget({
+    required this.labeltext,
+    required this.controller,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -21,11 +24,12 @@ class DatePickerWidget extends StatelessWidget {
       },
       onTap: () async {
         DateTime? pickedDate = await showDatePicker(
-            context: context,
-            currentDate: DateTime.now(),
-            initialDate: DateTime.now(),
-            firstDate: DateTime.now(),
-            lastDate: DateTime(2100));
+          context: context,
+          currentDate: DateTime.now(),
+          initialDate: DateTime.now(),
+          firstDate: DateTime.now(),
+          lastDate: DateTime(2100),
+        );
         if (pickedDate != null) {
           String formattedDate = DateFormat('yyyy-MM-dd').format(pickedDate);
           controller.text = formattedDate;
@@ -35,16 +39,19 @@ class DatePickerWidget extends StatelessWidget {
       controller: controller,
       textInputAction: TextInputAction.done,
       decoration: InputDecoration(
-          floatingLabelBehavior: FloatingLabelBehavior.never,
-          fillColor: AppColors.appBarColor,
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(20),
-          ),
-          labelText: labeltext,
-          labelStyle: const TextStyle(
-              color: AppColors.darkColor, fontSize: AppFontSize.s12)),
+        floatingLabelBehavior: FloatingLabelBehavior.never,
+        fillColor: AppColors.appBarColor,
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
+        labelText: labeltext,
+        labelStyle: const TextStyle(
+          color: AppColors.darkColor,
+          fontSize: AppFontSize.s12,
+        ),
+      ),
       style: const TextStyle(
-          color: AppColors.primaryColor, fontSize: AppFontSize.s12),
+        color: AppColors.primaryColor,
+        fontSize: AppFontSize.s12,
+      ),
     );
   }
 }
