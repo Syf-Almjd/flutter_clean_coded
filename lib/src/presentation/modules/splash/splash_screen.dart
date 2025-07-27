@@ -8,6 +8,8 @@ import 'package:flutter_clean_coded/src/presentation/shared/widgets_builder.dart
 // import 'package:rive/rive.dart';
 
 // import '../../Shared/widgets_builder.dart';
+// import '../../../core/localization/app_locale.dart';
+// import '../../../core/utils/managers/app_enums.dart';
 import '../../state/navigation_cubit/navi_cubit.dart';
 
 //This class is used to display the starting splash screen
@@ -32,17 +34,18 @@ class _SplashScreenState extends State<SplashScreen> {
             child: OutlinedButton(
               onPressed: () {
                 showToast(
-                  "Only English is supported for now",
+                  "Al momento è supportato solo l'italiano 🇮🇹",
                   AppColors.primaryColor,
                   context,
                 );
+
                 // LocalDataCubit.get(context).changeLocale(
                 //     appDefaultLocale == AppLocale.english
-                //         ? AppLocale.chinese
+                //         ? AppLocale.italian
                 //         : AppLocale.english);
                 // setState(() {});
               },
-              child: textC("English", preText: "🌐  : "),
+              child: textC("Italiano  🇮🇹 ", preText: "🌐  : "),
             ),
           ),
           Center(
@@ -54,10 +57,10 @@ class _SplashScreenState extends State<SplashScreen> {
             ),
           ),
           textC(
-            "Welcome to LKE Community!",
+            "Welcome to CleanCode Premium!",
             style: TextStyle(
               color: AppColors.primaryColor,
-              fontSize: AppFontSize.s14,
+              fontSize: AppFontSize.s16,
               fontWeight: FontWeight.normal,
             ),
             textAlign: TextAlign.center,
@@ -97,7 +100,7 @@ class _SplashScreenState extends State<SplashScreen> {
             onPressed: () {
               NaviCubit.get(context).navigate(context, const IntroScreen());
             },
-            buttonText: "Get Started!",
+            buttonText: "Get started!",
             fontSize: AppFontSize.s16,
           ),
           // loadButtonOutline(

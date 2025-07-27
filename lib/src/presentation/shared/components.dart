@@ -61,7 +61,7 @@ Widget padBox({size}) {
 Widget textFieldA({
   // here if you put in before the { it is required by default but if you put after it you need to say required
   Key?
-  key, //the difference is that inside {} it can be optional if you want to enforce input when call use "required"
+      key, //the difference is that inside {} it can be optional if you want to enforce input when call use "required"
   required TextEditingController controller,
   required String hintText,
   bool? obscureText = false, //optional
@@ -131,27 +131,27 @@ Widget buttonA({
 
 //Show a toast
 void showToast(String text, Color color, context) => toastification.show(
-  context: context,
-  title: textC(text),
-  alignment: Alignment.bottomCenter,
-  primaryColor: color,
-  dragToClose: true,
-  showProgressBar: true,
-  icon: const Icon(Icons.info_outlined),
-  autoCloseDuration: const Duration(seconds: 3),
-);
+      context: context,
+      title: textC(text),
+      alignment: Alignment.bottomCenter,
+      primaryColor: color,
+      dragToClose: true,
+      showProgressBar: true,
+      icon: const Icon(Icons.info_outlined),
+      autoCloseDuration: const Duration(seconds: 3),
+    );
 
-Widget getDivider(context) {
+Widget getDivider(BuildContext context) {
   return Divider(
     endIndent: getWidth(17, context),
     indent: getWidth(17, context),
     thickness: 1,
-    color: AppColors.darkColor.withOpacity(.3),
+    color: AppColors.darkColor.withOpacityPercent(0.3),
   );
 }
 
 //Validate Text field
-validateForm(GlobalKey<FormState> validateKey) {
+bool validateForm(GlobalKey<FormState> validateKey) {
   if (validateKey.currentState!.validate()) {
     validateKey.currentState!.save();
     return true;
@@ -180,7 +180,7 @@ String getDateTimeToDay(String dateString) {
   }
 }
 
-getFormatDate(date) {
+String getFormatDate(date) {
   date ??= DateTime.now().toString();
   var inputFormat = DateFormat('yyyy-MM-dd HH:mm');
   var inputDate = inputFormat.parse(date.toString()).toLocal();
@@ -189,7 +189,7 @@ getFormatDate(date) {
 }
 
 void showLottieChoiceDialog({
-  required context,
+  required BuildContext context,
   String? title,
   String? postTitle,
   String? content,
@@ -393,7 +393,7 @@ Future showAppLanguageDialog({required BuildContext context}) {
                   width: getWidth(70, context),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
-                    color: Colors.grey.withOpacity(0.2),
+                    color: Colors.grey.withOpacityPercent(0.2),
                   ),
                   padding: const EdgeInsets.symmetric(
                     horizontal: 10,
@@ -449,13 +449,13 @@ Future<TimeOfDay?> getTime({
   return time;
 }
 
-Future<String> getAppUserName(context) async {
+Future<String> getAppUserName(BuildContext context) async {
   var userName = ((await UserUsecase().getUserProfile())).lastName;
 
   return userName.toUpperCase();
 }
 
-Future<String> getAppUserPhoto(context) async {
+Future<String> getAppUserPhoto(BuildContext context) async {
   try {
     var imageUrl = ((await UserUsecase().getUserProfile())).image.imageUrl;
     return imageUrl;

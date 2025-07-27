@@ -6,6 +6,7 @@ import 'package:flutter_clean_coded/src/core/utils/managers/app_assets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:flutter_clean_coded/src/core/utils/managers/app_extensions.dart';
 import 'package:flutter_clean_coded/src/presentation/shared/components.dart';
 import 'package:flutter_clean_coded/src/presentation/shared/widgets_builder.dart';
 
@@ -28,7 +29,7 @@ class _EmailVerificationPageState extends State<EmailVerificationPage> {
     super.initState();
   }
 
-  getEmail() async {
+  Future<void> getEmail() async {
     // var userData = await LocalDataCubit.get(context)
     //     .getSharedMap(AppLocalConstants.currentLoginUser);
     // if (userData.isNotEmpty) {
@@ -49,7 +50,7 @@ class _EmailVerificationPageState extends State<EmailVerificationPage> {
             padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
-              color: AppColors.grey.withOpacity(0.2),
+              color: AppColors.grey.withOpacityPercent(0.2),
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -186,7 +187,7 @@ class _EmailVerificationPageState extends State<EmailVerificationPage> {
     );
   }
 
-  checkVerify() async {
+  Future<void> checkVerify() async {
     // isOTPCorrect = await RemoteDataCubit.get(context)
     //     .checkUserOTP(userEmail, otpPass.text, context);
     // if (!isOTPCorrect) {

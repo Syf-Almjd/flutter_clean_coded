@@ -12,7 +12,11 @@ import 'package:flutter_clean_coded/src/presentation/shared/components.dart';
 import 'package:share_plus/share_plus.dart';
 
 abstract class AppLists {
-  static const List<String> appSupportedLanguages = ["English", "中文"];
+  static const List<String> appSupportedLanguages = [
+    "English",
+    "中文",
+    "Italian",
+  ];
   static const List<String> genderTypes = ["Male", "Female"];
 
   static const List<String> appProblemTypes = [
@@ -165,9 +169,13 @@ abstract class AppLists {
     },
     (context) async {
       if (Platform.isIOS) {
-        await Share.shareUri(Uri.parse(AppSocialLinks.appleStoreURL));
+        await SharePlus.instance.share(
+          ShareParams(text: AppSocialLinks.appleStoreURL),
+        );
       } else {
-        await Share.shareUri(Uri.parse(AppSocialLinks.playStoreURL));
+        await SharePlus.instance.share(
+          ShareParams(text: AppSocialLinks.playStoreURL),
+        );
       }
     },
     (context) async {
@@ -185,7 +193,7 @@ abstract class AppLists {
     (context) async {
       await Clipboard.setData(
         const ClipboardData(
-          text: "PRONTOSHOP Group ${AppConstants.appVersion}",
+          text: "La Tipa Agency Group ${AppConstants.appVersion}",
         ),
       );
       showToast("Copied to clipboard", AppColors.primaryColor, context);
@@ -228,15 +236,13 @@ abstract class AppLists {
     },
   ];
 
-  //My Property
+  //Notifications
   static List<ToggleButtonModel> notificationButtonsItemLists = [
-    ToggleButtonModel(NotificationsType.Bookings_Notification.name, true),
-    ToggleButtonModel(NotificationsType.News_Notification.name, true),
-    ToggleButtonModel(NotificationsType.Welcome_Message.name, true),
-    ToggleButtonModel(NotificationsType.Feedback_Notification.name, true),
+    ToggleButtonModel(NotificationsType.welcomeNotification.name, true),
   ];
 
+  //Home Scrolling
   static List<ToggleButtonModel> appSettingsButtonsItemLists = [
-    ToggleButtonModel(AppButtonsType.Allow_Home_Scrolling.name, true),
+    ToggleButtonModel(AppButtonsType.allowHomeScrolling.name, true),
   ];
 }

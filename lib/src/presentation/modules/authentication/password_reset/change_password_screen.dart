@@ -36,7 +36,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
     super.initState();
   }
 
-  resetPassword() async {
+  Future<void> resetPassword() async {
     // await RemoteDataCubit.get(context)
     //     .sendUserOTP(widget.userEmail, context)
     //     .then(
@@ -69,7 +69,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                 padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
-                  color: AppColors.grey.withOpacity(0.2),
+                  color: AppColors.grey.withOpacityPercent(0.2),
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,

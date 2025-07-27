@@ -1,46 +1,17 @@
-///FOR API Usage
-enum BookingStatus {
-  CANCELLED,
-  PAYMENT_PENDING,
-  RESERVED,
-  CONFIRMED,
-  PAYMENT_FAILED
-}
+//FOR API Usage
 
-enum AuthPages {
-  landing,
-  login,
-  register,
-}
-
-enum PaymentStatus { SUCCESS, PENDING, FAILED, REFUNDED }
-
-enum SearchType {
-  SHORT,
-  LONG,
-}
-
-enum AppLocale {
-  english,
-  chinese,
-}
-
-enum NotificationsType {
-  Bookings_Notification,
-  Welcome_Message,
-  News_Notification,
-  Feedback_Notification,
-}
-
-enum AppButtonsType {
-  Allow_Home_Scrolling,
-}
-
-enum NewsFeedType { PROMOTION, EVENT, OTHERS }
-
-enum UserType { OWNER, TENANT, ALL, LOADING }
+enum PaymentStatus { refunded, cancelled, success, pending, failed }
 
 //For App Logic Usage
+
+enum AuthPages { landing, login, register }
+
+enum NotificationsType { welcomeNotification }
+
+enum AppLocale { english, chinese, italian }
+
+enum AppButtonsType { allowHomeScrolling }
+
 enum UserStatusType {
   newUser,
   existingUser,
@@ -50,14 +21,6 @@ enum UserStatusType {
 }
 
 enum FeedbackType { management, property, booking, payment, withdrawal, other }
-
-enum DateAvailableStatus { AVAILABLE, OCCUPIED, RESERVED, NOT_AVAILABLE }
-
-enum UnitListingType {
-  totalRevenue,
-  withdraw,
-  outstanding,
-}
 
 enum PageViewType {
   homePage,

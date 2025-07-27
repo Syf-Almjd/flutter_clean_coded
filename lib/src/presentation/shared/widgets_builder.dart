@@ -10,6 +10,7 @@ import 'package:flutter_clean_coded/src/core/themes/styles/app_colors.dart';
 import 'package:flutter_clean_coded/src/core/themes/styles/app_fonts.dart';
 import 'package:flutter_clean_coded/src/core/utils/managers/app_assets.dart';
 import 'package:flutter_clean_coded/src/core/utils/managers/app_enums.dart';
+import 'package:flutter_clean_coded/src/core/utils/managers/app_extensions.dart';
 import 'package:flutter_clean_coded/src/data/local/constant/local_constants.dart';
 import 'package:flutter_clean_coded/src/domain/usecases/notification_usecase.dart';
 import 'package:flutter_clean_coded/src/presentation/state/navigation_cubit/navi_cubit.dart';
@@ -114,7 +115,7 @@ Widget loadingNetworkContainer({
             child: CircularProgressIndicator(
               value: loadingProgress.expectedTotalBytes != null
                   ? loadingProgress.cumulativeBytesLoaded /
-                        loadingProgress.expectedTotalBytes!
+                      loadingProgress.expectedTotalBytes!
                   : null,
             ),
           );
@@ -150,7 +151,7 @@ Widget lottieNetworkContainer({
 }
 
 Widget appLogoPreview({
-  required context,
+  required BuildContext context,
   double? width,
   double? height,
   wBackground = true,
@@ -170,8 +171,8 @@ Widget appLogoPreview({
   );
 }
 
-gifPreview({
-  required context,
+SizedBox gifPreview({
+  required BuildContext context,
   required String filePath,
   double? width,
   double? height,
@@ -183,7 +184,7 @@ gifPreview({
   );
 }
 
-paymentLoading() {
+Center paymentLoading() {
   return Center(
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -202,7 +203,7 @@ paymentLoading() {
   );
 }
 
-searchingAnimation() {
+Column searchingAnimation() {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.center,
     mainAxisAlignment: MainAxisAlignment.center,
@@ -217,7 +218,7 @@ searchingAnimation() {
   );
 }
 
-searchingHouseAnimation() {
+FadeInUp searchingHouseAnimation() {
   return FadeInUp(
     from: 10,
     delay: const Duration(milliseconds: 400),
@@ -226,7 +227,7 @@ searchingHouseAnimation() {
 }
 
 Widget fadedText({
-  required context,
+  required BuildContext context,
   required String text,
   String? preText,
   String? postText,
@@ -234,6 +235,7 @@ Widget fadedText({
   double? fontSize,
   int? delayTime,
   int? maxLinesSize,
+  List<Shadow>? shadows,
   FontWeight? fontWeight,
   Curve? curvingStyle,
   TextAlign? alignment,
@@ -243,7 +245,7 @@ Widget fadedText({
 }) {
   return FadeInDown(
     from: animateDistance ?? 10,
-    delay: Duration(milliseconds: delayTime ?? 10),
+    delay: Duration(milliseconds: delayTime ?? 20),
     curve: curvingStyle ?? Curves.fastEaseInToSlowEaseOut,
     child: Padding(
       padding: paddingSize ?? const EdgeInsets.all(8.0),
@@ -255,6 +257,7 @@ Widget fadedText({
         maxLines: maxLinesSize,
         textAlign: alignment ?? TextAlign.start,
         style: TextStyle(
+          shadows: shadows,
           fontSize: fontSize ?? AppFontSize.s14,
           color: textColor ?? AppColors.primaryColor,
           fontWeight: fontWeight ?? FontWeight.w400,
@@ -265,7 +268,7 @@ Widget fadedText({
 }
 
 Widget fadedIconText({
-  required context,
+  required BuildContext context,
   required String text,
   String? preText,
   String? postText,
@@ -310,7 +313,7 @@ Widget fadedIconText({
   );
 }
 
-Widget appFooter(context) {
+Widget appFooter(BuildContext context) {
   return Align(
     alignment: Alignment.bottomCenter,
     child: Wrap(
@@ -318,10 +321,7 @@ Widget appFooter(context) {
       children: [
         const Divider(),
         Center(
-          child: textC(
-            "PRONTOSHOP GROUP MANAGEMENT & SERVICES ©",
-            textAlign: TextAlign.center,
-          ),
+          child: textC("La Tipa Agency © 2025", textAlign: TextAlign.center),
         ),
         getCube(1, context),
       ],
@@ -329,10 +329,13 @@ Widget appFooter(context) {
   );
 }
 
-Widget appCancelButton(context, {EdgeInsets? margin, Function()? onTap}) {
+Widget appCancelButton(
+  BuildContext context, {
+  EdgeInsets? margin,
+  Function()? onTap,
+}) {
   return GestureDetector(
-    onTap:
-        onTap ??
+    onTap: onTap ??
         () {
           NaviCubit.get(context).pop(context);
         },
@@ -352,10 +355,13 @@ Widget appCancelButton(context, {EdgeInsets? margin, Function()? onTap}) {
   );
 }
 
-Widget appBackButton(context, {EdgeInsets? margin, Function()? onTap}) {
+Widget appBackButton(
+  BuildContext context, {
+  EdgeInsets? margin,
+  Function()? onTap,
+}) {
   return GestureDetector(
-    onTap:
-        onTap ??
+    onTap: onTap ??
         () {
           NaviCubit.get(context).pop(context);
         },
@@ -375,7 +381,7 @@ Widget appBackButton(context, {EdgeInsets? margin, Function()? onTap}) {
   );
 }
 
-Widget appMenuButton(context, bool isOpen) {
+Widget appMenuButton(BuildContext context, bool isOpen) {
   return FadeIn(
     curve: Curves.ease,
     child: Container(
@@ -540,7 +546,7 @@ Widget previewImage({
   );
 }
 
-coverPreviewImage(fileUser) {
+CachedNetworkImage coverPreviewImage(String fileUser) {
   // var isUrl = false;
   // try {
   //   fileUser = base64Decode(fileUser);
@@ -637,7 +643,7 @@ Widget getSkeletonLoading() {
             height: getHeight(20, context),
             width: getWidth(90, context),
             decoration: BoxDecoration(
-              color: Colors.grey.withOpacity(0.5),
+              color: Colors.grey.withOpacityPercent(0.5),
               borderRadius: BorderRadius.circular(20),
             ),
           );
@@ -651,14 +657,16 @@ Widget getSkeletonLoading() {
   );
 }
 
-paymentStatusWidget({required PaymentStatus paymentStatus}) {
+SizedBox paymentStatusWidget({required PaymentStatus paymentStatus}) {
   Widget paymentStatusReturn;
   switch (paymentStatus) {
-    case PaymentStatus.SUCCESS:
+    case PaymentStatus.success:
       paymentStatusReturn = Image.asset(AppAssets.confirmedGif, scale: 7);
-    case PaymentStatus.FAILED:
+    case PaymentStatus.failed:
       paymentStatusReturn = Image.asset(AppAssets.errorGif);
-    case PaymentStatus.REFUNDED || PaymentStatus.PENDING:
+    case PaymentStatus.refunded ||
+          PaymentStatus.pending ||
+          PaymentStatus.cancelled:
       paymentStatusReturn = FadeOutDownBig(
         child: const Center(
           child: Icon(Icons.warning_amber, color: Colors.orange, size: 120),
@@ -672,7 +680,7 @@ paymentStatusWidget({required PaymentStatus paymentStatus}) {
   );
 }
 
-appCustomBar(String text, context, {Function()? onTap}) {
+AppBar appCustomBar(String text, context, {Function()? onTap}) {
   return AppBar(
     toolbarHeight: getHeight(10, context),
     centerTitle: true,
@@ -691,7 +699,7 @@ appCustomBar(String text, context, {Function()? onTap}) {
   );
 }
 
-appCustomCancelBar(String text, context, {Function()? onTap}) {
+AppBar appCustomCancelBar(String text, context, {Function()? onTap}) {
   return AppBar(
     toolbarHeight: getHeight(10, context),
     centerTitle: true,
@@ -710,7 +718,7 @@ appCustomCancelBar(String text, context, {Function()? onTap}) {
   );
 }
 
-appSliverCustomCancelBar(
+SliverAppBar appSliverCustomCancelBar(
   String text,
   context, {
   Function()? onTap,
@@ -746,7 +754,7 @@ appSliverCustomCancelBar(
   );
 }
 
-sendAppNotification({
+Future<bool> sendAppNotification({
   required String title,
   required String message,
   required NotificationsType notificationsType,
@@ -765,6 +773,7 @@ sendAppNotification({
       ),
     );
   }
+  return false;
 }
 
 EdgeInsets appCustomPadding({
@@ -875,7 +884,7 @@ void printC(message, {bool isError = false}) {
 
 void shareFile(path) async {
   try {
-    await Share.shareXFiles([XFile(path)]);
+    await SharePlus.instance.share(ShareParams(files: [XFile(path)]));
   } catch (e) {
     rethrow;
   }

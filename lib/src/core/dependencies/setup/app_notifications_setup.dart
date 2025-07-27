@@ -4,7 +4,7 @@ import 'package:flutter_clean_coded/src/core/utils/managers/app_enums.dart';
 import 'package:flutter_clean_coded/src/presentation/shared/widgets_builder.dart';
 
 class AppNotificationSetup {
-  static init() async {
+  static Future<void> init() async {
     //     await FirebaseMessaging.instance.setAutoInitEnabled(true);
 
     //     final notificationSettings =
@@ -40,7 +40,7 @@ class AppNotificationSetup {
     await AppNotificationSetup.setListener();
   }
 
-  static setListener() {
+  static Future<void> setListener() async {
     AwesomeNotifications().setListeners(
       onActionReceivedMethod: AppNotificationSetup.onActionReceivedMethod,
       onNotificationCreatedMethod:
@@ -52,7 +52,7 @@ class AppNotificationSetup {
     );
   }
 
-  requestPermission() async {
+  Future<void> requestPermission() async {
     AwesomeNotifications().isNotificationAllowed().then((isAllowed) {
       if (!isAllowed) {
         AwesomeNotifications().requestPermissionToSendNotifications();
@@ -60,9 +60,9 @@ class AppNotificationSetup {
       //Welcome Message
     });
     sendAppNotification(
-      title: 'Welcome to LKE Group!',
-      message: "Thank you for installing our app",
-      notificationsType: NotificationsType.Welcome_Message,
+      title: 'Welcome to a brand new experience 🎉',
+      message: "We’re glad to have you on board. Let’s get started!",
+      notificationsType: NotificationsType.welcomeNotification,
     );
   }
 

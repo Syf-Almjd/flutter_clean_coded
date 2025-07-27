@@ -1,0 +1,36 @@
+final Map<String, String> italianTranslations = {
+  'english': 'inglese',
+  'italian': 'italiano',
+  'Welcome to CleanShop!': 'Benvenuto nel CleanShop!',
+  'Verify Email': 'Verifica Email',
+  'Check your Email!': 'Controlla la tua Email!',
+  'We have sent you a verification link! Check your Spam folder.':
+      'Ti abbiamo inviato un link di verifica! Controlla la tua cartella Spam.',
+  'Unverified yet!': 'Ancora non verificato!',
+  'Logout': 'Esci',
+  'Booking Details': 'Dettagli Prenotazione',
+  'Connection Error!': 'Errore di connessione!',
+  'We are unable to connect to our server, please check your connection or try again another time.':
+      'Non riusciamo a connetterci al nostro server, controlla la connessione o riprova più tardi.',
+  'Retry': 'Riprova',
+  'Next': 'Avanti',
+  'Done': 'Fatto',
+  'Login': 'Accedi',
+  'Sign up': 'Registrati',
+  'Signup': 'Registrati',
+  'Continue as a Guest': 'Continua come ospite',
+  'Please wait...': 'Attendere prego...',
+  'Get started!': 'Inizia ora!',
+  'Welcome to CleanCode Premium!': 'Benvenuto su CleanCode Premium!',
+  'How would you like to Login?': 'Come desideri accedere?',
+  'Email': 'Email',
+  'Password': 'Password',
+  'Forget password?': 'Password dimenticata?',
+  'Welcome back': 'Bentornato',
+  'Are you a new user': 'Sei un nuovo utente?',
+  'Are you an existing user': 'Sei un utente esistente?',
+  'Welcome to a brand new experience 🎉':
+      'Benvenuto in una nuova esperienza 🎉',
+  'We’re glad to have you on board. Let’s get started!':
+      'Siamo felici di averti con noi. Iniziamo!',
+};

@@ -72,7 +72,7 @@ class DatePicker extends StatelessWidget {
 
 PickerDateRange datesValues = PickerDateRange(DateTime.now(), DateTime.now());
 
-setCalenderSelectedValue(pickerDateRange) {
+void setCalenderSelectedValue(pickerDateRange) {
   datesValues = pickerDateRange;
 }
 

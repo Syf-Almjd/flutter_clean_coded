@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:flutter_clean_coded/src/core/dependencies/app_dep_injector.dart';
 
 class SecureStorageDatabase {
   final FlutterSecureStorage secureStorage;

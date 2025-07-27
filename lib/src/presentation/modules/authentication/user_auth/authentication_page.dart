@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_clean_coded/src/core/utils/managers/app_assets.dart';
+import 'package:flutter_clean_coded/src/core/utils/managers/app_extensions.dart';
+import 'package:flutter_clean_coded/src/presentation/modules/app/home/home_page.dart';
 import 'package:flutter_clean_coded/src/presentation/modules/authentication/user_auth/cubit/user_auth_page_cubit.dart';
 import 'package:flutter_clean_coded/src/presentation/modules/authentication/user_auth/screens/user_login_screen.dart';
 import 'package:flutter_clean_coded/src/presentation/modules/authentication/user_auth/screens/user_signup_screen.dart';
+import 'package:flutter_clean_coded/src/presentation/state/navigation_cubit/navi_cubit.dart';
 
 import '../../../shared/components.dart';
 import '../../../shared/widgets_builder.dart';
@@ -41,7 +44,7 @@ class _AuthenticationLayoutState extends State<AuthenticationLayout> {
                       bottomLeft: Radius.circular(50),
                     ),
                     child: Image.asset(
-                      AppAssets.teamMembers,
+                      AppAssets.companyBgImage,
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -53,14 +56,14 @@ class _AuthenticationLayoutState extends State<AuthenticationLayout> {
                     width: getWidth(40, context),
                     height: getHeight(18, context),
                     decoration: BoxDecoration(
-                      color: Colors.green.withOpacity(0.60),
+                      color: Colors.black.withOpacityPercent(0.60),
                       borderRadius: const BorderRadius.only(
                         topLeft: Radius.circular(110),
                         bottomLeft: Radius.circular(20),
                       ),
                     ),
                     child: const Padding(
-                      padding: EdgeInsets.only(top: 8.0, left: 10),
+                      padding: EdgeInsets.only(top: 20.0, left: 20),
                       child: Image(image: AssetImage(AppAssets.logoNbNt)),
                     ),
                   ),
@@ -81,7 +84,7 @@ class _AuthenticationLayoutState extends State<AuthenticationLayout> {
                       children: [
                         fadedText(
                           context: context,
-                          text: "Welcome to LKE Group!",
+                          text: "Welcome to CleanCode!",
                           textColor: AppColors.primaryColor,
                           paddingSize: const EdgeInsets.only(left: 20),
                           fontWeight: FontWeight.w600,
@@ -104,6 +107,8 @@ class _AuthenticationLayoutState extends State<AuthenticationLayout> {
                           child: loadButton(
                             buttonElevation: 0,
                             context: context,
+                            backgroundColor:
+                                AppColors.primaryColor.withOpacityPercent(0.90),
                             isLoadButton: false,
                             onPressed: () {
                               UserAuthPageCubit.get(
@@ -149,7 +154,7 @@ class _AuthenticationLayoutState extends State<AuthenticationLayout> {
                             buttonElevation: 0,
                             buttonText: 'Sign Up',
                             borderCurveSize: 10,
-                            backgroundColor: AppColors.darkColor,
+                            backgroundColor: AppColors.primaryColor,
                             fontSize: AppFontSize.s16,
                           ),
                         ),
@@ -167,8 +172,10 @@ class _AuthenticationLayoutState extends State<AuthenticationLayout> {
     );
   }
 
-  startGuestMode() async {
-    isGuestMode = true;
+  Future<void> startGuestMode() async {
+    NaviCubit.get(context).navigate(context, const HomePage());
+
+    // isGuestMode = true;
     // await LocalDataCubit.get(context).savePlainData(
     //     AppLocalConstants.userLoginType, AppLocalConstants.guestModeAuth);
     // await RemoteDataCubit.get(context).loginUser(

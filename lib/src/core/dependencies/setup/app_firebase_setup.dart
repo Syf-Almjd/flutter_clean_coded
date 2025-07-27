@@ -1,12 +1,12 @@
-import 'package:firebase_core/firebase_core.dart';
+// import 'package:firebase_core/firebase_core.dart';
 // import 'package:firebase_crashlytics/firebase_crashlytics.dart';
-import 'package:flutter_clean_coded/src/data/remote/firebase/firebase_options.dart';
+// import 'package:flutter_clean_coded/src/data/remote/firebase/firebase_options.dart';
 
 class AppFirebaseSetup {
-  static init() async {
-    await Firebase.initializeApp(
-      options: DefaultFirebaseOptions.currentPlatform,
-    );
+  static Future<void> init() async {
+    // await Firebase.initializeApp(
+    //   options: DefaultFirebaseOptions.currentPlatform,
+    // );
     // if (kReleaseMode) {
     //   errorCrashReporting();
     // }

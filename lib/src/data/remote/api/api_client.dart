@@ -11,7 +11,7 @@ class ApiClient {
 
   ValueNotifier<bool> isLoading = ValueNotifier(false);
 
-  init() {
+  Future<void> init() async {
     String token = UserUsecase().getUserToken() ?? "";
     String timestamp = DateTime.now().millisecondsSinceEpoch.toString();
     headers = {
@@ -22,7 +22,7 @@ class ApiClient {
     };
   }
 
-  addInterceptors({printNetLogs = false}) {
+  Future<void> addInterceptors({bool printNetLogs = false}) async {
     // TODO: CheckPoint NO2
     // printNetLogs = (printNetLogs && kReleaseMode); //during release
     printNetLogs = (!kReleaseMode); //during debugging

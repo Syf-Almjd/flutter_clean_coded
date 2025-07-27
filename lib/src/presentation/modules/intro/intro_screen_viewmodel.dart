@@ -5,10 +5,12 @@ import 'package:flutter_clean_coded/src/core/utils/managers/app_assets.dart';
 class IntroScreenViewmodel {
   List<PageViewModel>? pages = [
     PageViewModel(
-      title: "Title of first page",
+      title: "Benvenuti a Bella Vita",
       body:
-          "Here you can write the description of the page, to explain something...",
-      image: Center(child: Image.asset(AppAssets.comingSoonGif, height: 175.0)),
+          "Siamo un ristorante italiano specializzato in piatti di carne di alta qualità.",
+      image: Center(
+        child: Image.asset(AppAssets.introScreenFirst, height: 200),
+      ),
       decoration: const PageDecoration(
         pageColor: Colors.white,
         titleTextStyle: TextStyle(
@@ -20,10 +22,12 @@ class IntroScreenViewmodel {
       ),
     ),
     PageViewModel(
-      title: "Title of second page",
+      title: "La nostra filosofia",
       body:
-          "Here you can write the description of the page, to explain something...",
-      image: Center(child: Image.asset(AppAssets.comingSoonGif, height: 175.0)),
+          "Crediamo che la buona cucina debba essere fatta con ingredienti di qualità e con amore.",
+      image: Center(
+        child: Image.asset(AppAssets.introScreenSecond, height: 200),
+      ),
       decoration: const PageDecoration(
         pageColor: Colors.white,
         titleTextStyle: TextStyle(
@@ -35,13 +39,20 @@ class IntroScreenViewmodel {
       ),
     ),
     PageViewModel(
-      title: "Title of third page",
+      title: "Vi aspettiamo",
       body:
-          "Here you can write the description of the page, to explain something...",
-      image: Center(child: Image.asset(AppAssets.comingSoonGif, height: 175.0)),
+          "Vieni a trovarci e scopri la nostra selezione di piatti e vini selezionati.",
+      image: Center(
+        child: Image.asset(AppAssets.introScreenThird, height: 200),
+      ),
       decoration: const PageDecoration(
         pageColor: Colors.white,
-        titleTextStyle: TextStyle(),
+        titleTextStyle: TextStyle(
+          color: Colors.black,
+          fontSize: 24.0,
+          fontWeight: FontWeight.w700,
+        ),
+        bodyTextStyle: TextStyle(color: Colors.black, fontSize: 18.0),
       ),
     ),
   ];

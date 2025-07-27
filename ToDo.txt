@@ -1,8 +1,7 @@
-
 ### New Project Setup:
 
 1. Project Initialization:
-   - Create a new project.
+   - flutter create --org com.yourcompany your_project_name
 
 2. Test Cleanup:
    - Delete the default test files that are not needed.
@@ -22,11 +21,14 @@
 5. Android Configuration:
    - Handle potential exceptions, like `FileNotFoundException`, in the `build.gradle` for Android.
 
-6. App Name Configuration (Android):
-   - Change the app name in the `AndroidManifest.xml` file to reflect your project's name.
+6. App Name Configuration :
+   - (Android) Change the app name in the `AndroidManifest.xml` file to reflect your project's name.
+   - (iOS) Change the app name in the `Info.plist` file located in the `ios` directory under `CFBundleName`.
+   - (Flutter) Change the assets in lib/src/core/utils/manager/app_assets.dart / app_strings.dart / app_constants.dart
 
-7. App Name Configuration (iOS):
-   - Change the app name in the `Info.plist` file located in the `ios` directory under `CFBundleName`.
+7. Init :
+   - Firebase
+   - Shorebird
 
 8. Documentation:
    - Update the README file to include information about your project, its purpose, and any setup instructions.

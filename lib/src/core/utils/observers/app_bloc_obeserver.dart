@@ -2,7 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_clean_coded/src/presentation/shared/widgets_builder.dart';
 
 class AppBlocObserver extends BlocObserver {
-  static init() {
+  static Future<void> init() async {
     Bloc.observer = AppBlocObserver();
   }
 

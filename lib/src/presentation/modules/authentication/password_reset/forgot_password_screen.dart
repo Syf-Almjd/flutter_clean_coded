@@ -3,6 +3,7 @@ import 'package:flutter_clean_coded/src/core/localization/app_locale.dart';
 import 'package:flutter_clean_coded/src/core/themes/styles/app_colors.dart';
 import 'package:flutter_clean_coded/src/core/themes/styles/app_fonts.dart';
 import 'package:flutter_clean_coded/src/core/utils/managers/app_assets.dart';
+import 'package:flutter_clean_coded/src/core/utils/managers/app_extensions.dart';
 import 'package:flutter_clean_coded/src/presentation/Shared/widgets_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
@@ -38,7 +39,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
             padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
-              color: AppColors.grey.withOpacity(0.2),
+              color: AppColors.grey.withOpacityPercent(0.2),
             ),
             child: Column(
               children: [
@@ -144,7 +145,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
     );
   }
 
-  resetPassword(email, context) async {
+  Future<void> resetPassword(String email, BuildContext context) async {
     NaviCubit.get(context).navigate(
       context,
       ChangePasswordScreen(userEmail: email, isAnonRequest: true),

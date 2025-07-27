@@ -4,7 +4,15 @@ const _baseGifPath = 'assets/animations';
 abstract class AppAssets {
   static const appLogo = '$_basePath/app_logo.png';
   static const appLogoWB = '$_basePath/app_logo_wb.png';
-  static const teamMembers = '$_basePath/company/team.png';
+  static const introScreenFirst =
+      '$_baseGifPath/intro_screen/intro_screen_1.gif';
+  static const introScreenSecond =
+      '$_baseGifPath/intro_screen/intro_screen_2.gif';
+  static const introScreenThird =
+      '$_baseGifPath/intro_screen/intro_screen_3.gif';
+
+  static const companyBgImage = '$_basePath/company/bg_image.png';
+  static const companyBurgerShow = '$_basePath/company/home_burger.gif';
   static const splashGif = '$_baseGifPath/en_splash.gif';
   static const chineseSplashGif = '$_baseGifPath/ch_splash.gif';
   static const lockGif = '$_baseGifPath/locked_user.gif';

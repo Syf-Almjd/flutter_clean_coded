@@ -28,12 +28,15 @@ class _SplashLoadingScreenState extends State<SplashLoadingScreen> {
           Center(
             child: loadingAnimation(
               loadingType: LoadingAnimationWidget.fourRotatingDots(
-                color: AppColors.primaryColor,
+                color: AppColors.blackColor,
                 size: 50,
               ),
             ),
           ),
-          fadedText(context: context, text: "Please wait..."),
+          fadedText(
+              context: context,
+              text: "Attendere prego...",
+              textColor: AppColors.blackColor),
           getCube(2, context),
         ],
       ),

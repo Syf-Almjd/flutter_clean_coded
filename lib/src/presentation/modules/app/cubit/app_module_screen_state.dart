@@ -7,8 +7,8 @@ final class AppModuleScreenInitial extends AppModuleScreenState {}
 
 final class HomeAppModuleScreenInitial extends AppModuleScreenState {}
 
-final class FinanceAppModuleScreenInitial extends AppModuleScreenState {}
+final class MenuAppModuleScreenInitial extends AppModuleScreenState {}
 
-final class ShopAppModuleScreenInitial extends AppModuleScreenState {}
+final class RestaurantAppModuleScreenInitial extends AppModuleScreenState {}
 
-final class ProfileAppModuleScreenInitial extends AppModuleScreenState {}
+final class MoreAppModuleScreenInitial extends AppModuleScreenState {}

@@ -3,8 +3,8 @@ import 'package:flutter_clean_coded/src/core/localization/app_locale.dart';
 import 'package:flutter_clean_coded/src/core/themes/styles/app_colors.dart';
 import 'package:flutter_clean_coded/src/core/themes/styles/app_fonts.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_clean_coded/src/domain/models/authentication/login/user_login_model.dart';
-import 'package:flutter_clean_coded/src/presentation/modules/app/explore/explore_page.dart';
+import 'package:flutter_clean_coded/src/core/utils/managers/app_extensions.dart';
+import 'package:flutter_clean_coded/src/presentation/modules/app/home/home_page.dart';
 import 'package:flutter_clean_coded/src/presentation/modules/authentication/user_auth/cubit/user_auth_page_cubit.dart';
 import 'package:flutter_clean_coded/src/presentation/shared/components.dart';
 import 'package:flutter_clean_coded/src/presentation/shared/widgets_builder.dart';
@@ -135,7 +135,7 @@ class _LoginScreenState extends State<LoginScreen> {
               child: textC(
                 "Forgot Password?",
                 softWrap: true,
-                style: TextStyle(color: Colors.grey.withOpacity(0.6)),
+                style: TextStyle(color: Colors.grey.withOpacityPercent(0.6)),
                 textAlign: TextAlign.right,
               ),
               onTap: () {
@@ -154,7 +154,7 @@ class _LoginScreenState extends State<LoginScreen> {
             fontSize: AppFontSize.s16,
             buttonText: "Login",
             onPressed: () {
-              NaviCubit.get(context).navigate(context, const ExplorePage());
+              NaviCubit.get(context).navigate(context, const HomePage());
               // if (validateForm(_validateKey)) {
               //   submitRequest();
               // }
@@ -165,7 +165,7 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  resetPassword() {
+  void resetPassword() {
     NaviCubit.get(context).navigate(context, const ForgotPasswordScreen());
     // if (validateForm(_validateKey)) {
     //
@@ -185,11 +185,11 @@ class _LoginScreenState extends State<LoginScreen> {
     // }
   }
 
-  submitRequest() {
-    LoginModelRequest loginModel = LoginModelRequest(
-      email: email.text,
-      password: pass.text,
-    );
+  void submitRequest() {
+    // LoginModelRequest loginModel = LoginModelRequest(
+    //   email: email.text,
+    //   password: pass.text,
+    // );
     // .loginUser(loginModel, true, context);
   }
 }

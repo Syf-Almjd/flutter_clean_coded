@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_clean_coded/src/core/localization/app_locale.dart';
 import 'package:flutter_clean_coded/src/core/themes/styles/app_colors.dart';
 import 'package:flutter_clean_coded/src/core/themes/styles/app_fonts.dart';
-import 'package:flutter_clean_coded/src/core/utils/managers/app_enums.dart';
-import 'package:flutter_clean_coded/src/domain/models/authentication/signup/user_signup_model.dart';
+import 'package:flutter_clean_coded/src/core/utils/managers/app_extensions.dart';
 import 'package:flutter_clean_coded/src/presentation/modules/authentication/user_auth/cubit/user_auth_page_cubit.dart';
 import 'package:flutter_clean_coded/src/presentation/shared/components.dart';
 import 'package:flutter_clean_coded/src/presentation/shared/widgets_builder.dart';
@@ -49,7 +48,7 @@ class _SignupScreenState extends State<SignupScreen> {
               ),
               fadedText(
                 context: context,
-                text: "Welcome to LKE Group!",
+                text: "Welcome to CleanCode Premium!",
                 textColor: AppColors.darkColor,
                 fontSize: AppFontSize.s16,
                 fontWeight: FontWeight.w800,
@@ -181,7 +180,7 @@ class _SignupScreenState extends State<SignupScreen> {
               child: textC(
                 "Are you an existing user?",
                 softWrap: true,
-                style: TextStyle(color: Colors.grey.withOpacity(0.6)),
+                style: TextStyle(color: Colors.grey.withOpacityPercent(0.6)),
                 textAlign: TextAlign.right,
               ),
               onTap: () {
@@ -208,13 +207,13 @@ class _SignupScreenState extends State<SignupScreen> {
     );
   }
 
-  submitRequest() {
-    SignUpModelRequest registerModel = SignUpModelRequest(
-      email: email.text,
-      password: pass.text,
-      userType: UserType.TENANT.name, // Default
-      username: email.text,
-    );
+  void submitRequest() {
+    // SignUpModelRequest registerModel = SignUpModelRequest(
+    //   email: email.text,
+    //   password: pass.text,
+    //   userType: UserType.TENANT.name, // Default
+    //   username: email.text,
+    // );
     // RemoteDataCubit.get(context)
     //     .signupUser(registerModel, context)
     //     .then((value) => showToast(value, AppColors.primaryColor, context));

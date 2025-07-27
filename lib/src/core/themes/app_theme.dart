@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_clean_coded/src/core/utils/managers/app_constants.dart';
+import 'package:flutter_clean_coded/src/core/utils/managers/app_extensions.dart';
 
 import 'styles/app_colors.dart';
 
@@ -8,7 +9,7 @@ ThemeData getApplicationTheme() {
     appBarTheme: AppBarTheme(
       centerTitle: true,
       color: AppColors.white,
-      surfaceTintColor: AppColors.primaryColor.withOpacity(0.1),
+      surfaceTintColor: AppColors.primaryColor.withOpacityPercent(0.1),
     ),
     cardColor: Colors.white,
     colorScheme: const ColorScheme.light().copyWith(
@@ -32,11 +33,11 @@ ThemeData getApplicationTheme() {
 
     //Text Theme
     textTheme: ThemeData.light().textTheme.apply(
-      fontFamily: AppConstants.appFontFamily,
-    ),
+          fontFamily: AppConstants.appFontFamily,
+        ),
     primaryTextTheme: ThemeData.light().textTheme.apply(
-      fontFamily: AppConstants.appFontFamily,
-    ),
+          fontFamily: AppConstants.appFontFamily,
+        ),
   );
 }
 
@@ -45,7 +46,7 @@ ThemeData getDarkApplicationTheme() {
     appBarTheme: AppBarTheme(
       centerTitle: true,
       color: AppColors.white,
-      surfaceTintColor: AppColors.primaryColor.withOpacity(0.1),
+      surfaceTintColor: AppColors.primaryColor.withOpacityPercent(0.1),
     ),
     cardColor: Colors.white,
     colorScheme: const ColorScheme.dark().copyWith(
