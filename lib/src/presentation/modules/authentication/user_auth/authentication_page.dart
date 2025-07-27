@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_clean_coded/src/core/utils/managers/app_assets.dart';
 import 'package:flutter_clean_coded/src/core/utils/managers/app_extensions.dart';
+import 'package:flutter_clean_coded/src/presentation/modules/app/app_module_router.dart';
 import 'package:flutter_clean_coded/src/presentation/modules/app/home/home_page.dart';
 import 'package:flutter_clean_coded/src/presentation/modules/authentication/user_auth/cubit/user_auth_page_cubit.dart';
 import 'package:flutter_clean_coded/src/presentation/modules/authentication/user_auth/screens/user_login_screen.dart';
@@ -173,7 +174,7 @@ class _AuthenticationLayoutState extends State<AuthenticationLayout> {
   }
 
   Future<void> startGuestMode() async {
-    NaviCubit.get(context).navigate(context, const HomePage());
+    NaviCubit.get(context).navigate(context, const AppModuleRouter());
 
     // isGuestMode = true;
     // await LocalDataCubit.get(context).savePlainData(

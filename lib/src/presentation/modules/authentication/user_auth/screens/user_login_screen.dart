@@ -4,6 +4,7 @@ import 'package:flutter_clean_coded/src/core/themes/styles/app_colors.dart';
 import 'package:flutter_clean_coded/src/core/themes/styles/app_fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_clean_coded/src/core/utils/managers/app_extensions.dart';
+import 'package:flutter_clean_coded/src/presentation/modules/app/app_module_router.dart';
 import 'package:flutter_clean_coded/src/presentation/modules/app/home/home_page.dart';
 import 'package:flutter_clean_coded/src/presentation/modules/authentication/user_auth/cubit/user_auth_page_cubit.dart';
 import 'package:flutter_clean_coded/src/presentation/shared/components.dart';
@@ -154,7 +155,7 @@ class _LoginScreenState extends State<LoginScreen> {
             fontSize: AppFontSize.s16,
             buttonText: "Login",
             onPressed: () {
-              NaviCubit.get(context).navigate(context, const HomePage());
+              NaviCubit.get(context).navigate(context, const AppModuleRouter());
               // if (validateForm(_validateKey)) {
               //   submitRequest();
               // }
