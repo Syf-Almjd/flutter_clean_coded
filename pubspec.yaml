@@ -54,6 +54,7 @@ dependencies:
   syncfusion_flutter_datepicker: ^30.1.41
   flutter_inappwebview: ^6.1.15
   flutter_dotenv: ^5.2.1
+  flutter_svg: ^2.2.0
 
 
   # App Logging
