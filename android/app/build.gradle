@@ -74,6 +74,14 @@ android {
         targetSdkVersion flutter.targetSdkVersion //34
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
+        
+        // Build only for the device's architecture during debug (speeds up builds significantly)
+        ndk {
+            if (gradle.startParameter.taskNames.any { it.contains("Debug") }) {
+                // Use arm64-v8a for most modern devices, or x86_64 for emulators
+                abiFilters += listOf("arm64-v8a")
+            }
+        }
     }
 
     signingConfigs {
