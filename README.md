@@ -1,4 +1,4 @@
-# 🛡️ Flutter Clean Architecture & Feature-First Template
+# <h1 align="center"> ⚙️ Flutter Clean Architecture & Feature-First Engineered Template</h1>
 
 [![Flutter Version](https://img.shields.io/badge/Flutter-June%202026-02569B?logo=flutter&style=for-the-badge)](https://flutter.dev)
 [![Architecture Style](https://img.shields.io/badge/Architecture-Clean%20%26%20Feature--First-FF6F00?logo=dart&style=for-the-badge)](https://pub.dev)
@@ -6,16 +6,10 @@
 [![Created By](https://img.shields.io/badge/Created%20By-SaifAlmajd-blue?style=for-the-badge&logo=github)](https://github.com/Syf-Almjd)
 
 An enterprise-grade, highly scalable, clean, and modular Flutter application template structured according to modern **Clean Architecture + Feature-First** principles. Designed to support multiple development teams working in parallel.
-
----
-
-## 👨‍💻 Creator & Core Contributor
-
 This template is developed and maintained by **[SaifAlmajd (Syf-Almjd)](https://github.com/Syf-Almjd)**.
-- **GitHub**: [@Syf-Almjd](https://github.com/Syf-Almjd)
-- **Website/Portfolio**: [saifalmajd.web.app](https://saifalmajd.web.app/)
 
 ---
+
 
 ## 📖 Architectural Blueprint
 
@@ -23,7 +17,7 @@ This repository is designed around two core software engineering ideas:
 1. **Feature-First Structure**: All business capabilities are grouped into modular features. Grouping folders by feature makes it easy to scale codebases when adding/editing capabilities.
 2. **Clean Architecture inside Features**: Strict division between the presentation, domain, and data layers inside each feature module to isolate external data changes from business and UI layouts.
 
-```mermaid
+```text
 graph TD
     subgraph Feature Block
         Presentation[Presentation Layer: Widgets / Pages / BLoC / Cubit]
