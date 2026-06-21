@@ -228,3 +228,12 @@ This project is open-source software licensed under the [MIT License](LICENSE.md
   <b>Flutter Clean Architecture & Feature-First Template</b><br>
   Created with 💙 by <a href="https://github.com/Syf-Almjd">SaifAlmajd</a>
 </p>
+
+
+<h2 align="center">💙 Support Open Source Development 💙</h2>
+
+<div align="center">
+
+[![Sponsor on GitHub](https://img.shields.io/badge/Sponsor-GitHub-ea4aaa?style=for-the-badge&logo=github)](https://github.com/sponsors/Syf-Almjd)
+
+</div>
