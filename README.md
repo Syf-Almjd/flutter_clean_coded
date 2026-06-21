@@ -1,10 +1,19 @@
 # <h2 align="center">🏗️ Flutter Clean Architecture & Feature-First Engineered ⚙️</h2>
 
-[![Flutter Version](https://img.shields.io/badge/Flutter-June%202026-02569B?logo=flutter&style=for-the-badge)](https://flutter.dev)
-[![Architecture Style](https://img.shields.io/badge/Architecture-Clean%20%26%20Feature--First-FF6F00?logo=dart&style=for-the-badge)](https://pub.dev)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](LICENSE.md)
-[![Created By](https://img.shields.io/badge/Created%20By-SaifAlmajd-blue?style=for-the-badge&logo=github)](https://github.com/Syf-Almjd)
-
+<p align="center">
+  <a href="https://flutter.dev">
+    <img src="https://img.shields.io/badge/Flutter-June%202026-02569B?logo=flutter&style=for-the-badge" alt="Flutter Version">
+  </a>
+  <a href="https://pub.dev">
+    <img src="https://img.shields.io/badge/Architecture-Clean%20%26%20Feature--First-FF6F00?logo=dart&style=for-the-badge" alt="Architecture Style">
+  </a>
+  <a href="LICENSE.md">
+    <img src="https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge" alt="MIT License">
+  </a>
+  <a href="https://github.com/Syf-Almjd">
+    <img src="https://img.shields.io/badge/Created%20By-SaifAlmajd-blue?style=for-the-badge&logo=github" alt="Created By">
+  </a>
+</p>
 An enterprise-grade, highly scalable, clean, and modular Flutter application template structured according to modern **Clean Architecture + Feature-First** principles. Designed to support multiple development teams working in parallel.
 This template is developed and maintained by **[SaifAlmajd (Syf-Almjd)](https://github.com/Syf-Almjd)**.
 
