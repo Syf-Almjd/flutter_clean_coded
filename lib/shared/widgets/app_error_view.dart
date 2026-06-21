@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_clean_coded/src/core/themes/styles/app_fonts.dart';
-import 'package:flutter_clean_coded/src/core/utils/managers/app_assets.dart';
+import 'package:flutter_clean_coded/app/theme/app_fonts.dart';
+import 'package:flutter_clean_coded/core/constants/app_assets.dart';
 
 class CustomError extends StatelessWidget {
   final FlutterErrorDetails errorDetails;

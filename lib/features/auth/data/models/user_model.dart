@@ -1,36 +1,25 @@
-import 'package:flutter_clean_coded/src/domain/models/General/image_model.dart';
+import 'package:flutter_clean_coded/shared/models/image_model.dart';
+import 'package:flutter_clean_coded/features/auth/domain/entities/user.dart';
 
-class UserModel {
-  int userId;
-  String username;
-  String firstName;
-  String lastName;
-  String email;
-  String password;
-  String phone;
-  String gender;
-  String userRole;
-  String userType;
-  String userStatus;
-  ImageModel image;
-  DateTime createdAt;
-  DateTime updatedAt;
+/// Data Transfer Object (DTO) for User serialization/deserialization.
+class UserModel extends UserEntity {
+  final String password;
 
   UserModel({
-    required this.userId,
-    required this.username,
-    required this.firstName,
-    required this.lastName,
-    required this.email,
+    required super.userId,
+    required super.username,
+    required super.firstName,
+    required super.lastName,
+    required super.email,
     required this.password,
-    required this.phone,
-    required this.gender,
-    required this.userRole,
-    required this.userType,
-    required this.userStatus,
-    required this.image,
-    required this.createdAt,
-    required this.updatedAt,
+    required super.phone,
+    required super.gender,
+    required super.userRole,
+    required super.userType,
+    required super.userStatus,
+    required super.image,
+    required super.createdAt,
+    required super.updatedAt,
   });
 
   factory UserModel.fromJson(Map<String, dynamic> json) {

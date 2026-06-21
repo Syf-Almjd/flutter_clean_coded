@@ -1,14 +1,14 @@
 import 'dart:io';
 
-import 'package:flutter_clean_coded/src/core/themes/styles/app_colors.dart';
-import 'package:flutter_clean_coded/src/core/utils/managers/app_constants.dart';
-import 'package:flutter_clean_coded/src/core/utils/managers/app_enums.dart';
-import 'package:flutter_clean_coded/src/core/utils/managers/app_strings.dart';
-import 'package:flutter_clean_coded/src/domain/usecases/notification_usecase.dart';
+import 'package:flutter_clean_coded/app/theme/app_colors.dart';
+import 'package:flutter_clean_coded/core/constants/app_constants.dart';
+import 'package:flutter_clean_coded/core/enums/app_enums.dart';
+import 'package:flutter_clean_coded/core/constants/app_strings.dart';
+import 'package:flutter_clean_coded/features/notifications/domain/usecases/notification_usecase.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:ionicons/ionicons.dart';
-import 'package:flutter_clean_coded/src/presentation/shared/components.dart';
+import 'package:flutter_clean_coded/shared/widgets/components.dart';
 import 'package:share_plus/share_plus.dart';
 
 abstract class AppLists {

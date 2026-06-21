@@ -1,0 +1,173 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_clean_coded/core/constants/app_assets.dart';
+import 'package:flutter_clean_coded/core/extensions/app_extensions.dart';
+import 'package:flutter_clean_coded/features/auth/presentation/cubit/user_auth_page_cubit.dart';
+import 'package:flutter_clean_coded/features/auth/presentation/widgets/user_login_screen.dart';
+import 'package:flutter_clean_coded/features/auth/presentation/widgets/user_signup_screen.dart';
+import 'package:flutter_clean_coded/shared/widgets/components.dart';
+import 'package:flutter_clean_coded/shared/widgets/widgets_builder.dart';
+import 'package:flutter_clean_coded/app/theme/app_colors.dart';
+import 'package:flutter_clean_coded/app/theme/app_fonts.dart';
+
+import 'package:flutter_clean_coded/shared/helpers/navigation/navi_cubit.dart';
+
+/// The parent authentication page containing layout switching (Login, Signup, Landing).
+class AuthenticationLayout extends StatefulWidget {
+  const AuthenticationLayout({super.key});
+
+  @override
+  State<AuthenticationLayout> createState() => _AuthenticationLayoutState();
+}
+
+class _AuthenticationLayoutState extends State<AuthenticationLayout> {
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (context) => UserAuthPageCubit(),
+      child: Scaffold(
+        resizeToAvoidBottomInset: false,
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Stack(
+              children: [
+                Container(
+                  width: double.infinity,
+                  height: getHeight(30, context),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(200),
+                  ),
+                  child: ClipRRect(
+                    borderRadius: const BorderRadius.only(
+                      bottomLeft: Radius.circular(50),
+                    ),
+                    child: Image.asset(
+                      AppAssets.companyBgImage,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+                Positioned(
+                  bottom: -1,
+                  right: -1,
+                  child: Container(
+                    width: getWidth(40, context),
+                    height: getHeight(18, context),
+                    decoration: BoxDecoration(
+                      color: Colors.black.withOpacityPercent(0.60),
+                      borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(110),
+                        bottomLeft: Radius.circular(20),
+                      ),
+                    ),
+                    child: const Padding(
+                      padding: EdgeInsets.only(top: 20.0, left: 20),
+                      child: Image(image: AssetImage(AppAssets.logoNbNt)),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Expanded(
+              child: BlocBuilder<UserAuthPageCubit, UserAuthPageState>(
+                builder: (context, state) {
+                  if (state is UserLoginState) {
+                    return const LoginScreen();
+                  }
+                  if (state is UserSignupState) {
+                    return const SignupScreen();
+                  } else {
+                    return ListView(
+                      shrinkWrap: true,
+                      children: [
+                        fadedText(
+                          context: context,
+                          text: "Welcome to CleanCode!",
+                          textColor: AppColors.primaryColor,
+                          paddingSize: const EdgeInsets.only(left: 20),
+                          fontWeight: FontWeight.w600,
+                          fontSize: getWidth(5, context),
+                        ),
+                        fadedText(
+                          context: context,
+                          text: "How would you like to Login?",
+                          textColor: AppColors.primaryColor,
+                          paddingSize: const EdgeInsets.only(
+                            left: 20,
+                            top: 20,
+                            bottom: 5,
+                          ),
+                          fontWeight: FontWeight.w600,
+                          fontSize: getWidth(3, context),
+                        ),
+                        getCube(2, context),
+                        Center(
+                          child: loadButton(
+                            buttonElevation: 0,
+                            context: context,
+                            backgroundColor: AppColors.primaryColor.withOpacityPercent(0.90),
+                            isLoadButton: false,
+                            onPressed: () {
+                              UserAuthPageCubit.get(context).changeState(UserLoginState());
+                            },
+                            buttonText: 'Login',
+                            fontSize: AppFontSize.s16,
+                          ),
+                        ),
+                        getCube(3, context),
+                        Center(
+                          child: loadButtonOutline(
+                            context: context,
+                            isLoadButton: false,
+                            borderWidth: 0,
+                            buttonText: 'Continue as a Guest',
+                            buttonElevation: 10,
+                            onPressed: () async {
+                              startGuestMode();
+                            },
+                            fontSize: AppFontSize.s14,
+                          ),
+                        ),
+                        getCube(8, context),
+                        fadedText(
+                          context: context,
+                          text: "Are you a new User?",
+                          textColor: AppColors.darkColor,
+                          paddingSize: const EdgeInsets.all(30),
+                          fontWeight: FontWeight.w600,
+                          fontSize: AppFontSize.s14,
+                        ),
+                        Center(
+                          child: loadButton(
+                            isLoadButton: false,
+                            context: context,
+                            onPressed: () {
+                              UserAuthPageCubit.get(context).changeState(UserSignupState());
+                            },
+                            buttonElevation: 0,
+                            buttonText: 'Sign Up',
+                            borderCurveSize: 10,
+                            backgroundColor: AppColors.primaryColor,
+                            fontSize: AppFontSize.s16,
+                          ),
+                        ),
+                        getCube(5, context),
+                      ],
+                    );
+                  }
+                },
+              ),
+            ),
+            appFooter(context),
+          ],
+        ),
+      ),
+    );
+  }
+
+  void startGuestMode() {
+    NaviCubit.get(context).navigateToApp(context);
+  }
+}

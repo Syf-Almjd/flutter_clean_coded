@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_clean_coded/src/core/dependencies/app_dep_injector.dart';
-import 'package:flutter_clean_coded/src/data/remote/api/network_constants.dart';
+import 'package:flutter_clean_coded/app/di/service_locator.dart';
+import 'package:flutter_clean_coded/core/network/network_constants.dart';
 
 Dio getDioClient() {
-  return AppDependencyInjector.getInstance().get<Dio>();
+  return ServiceLocator.getIt<Dio>();
 }
 
 // Method to get API URL

@@ -1,4 +1,4 @@
-import 'package:flutter_clean_coded/src/core/utils/managers/app_constants.dart';
+import 'package:flutter_clean_coded/core/constants/app_constants.dart';
 
 final Map<String, String> chineseTranslations = {
   'english': '英语',

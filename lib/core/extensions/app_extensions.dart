@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_clean_coded/src/core/themes/styles/app_colors.dart';
+import 'package:flutter_clean_coded/app/theme/app_colors.dart';
 
 extension MediaQueryExtension on BuildContext {
   Size get _size => MediaQuery.of(this).size;

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_clean_coded/src/core/utils/managers/app_constants.dart';
-import 'package:flutter_clean_coded/src/core/utils/managers/app_extensions.dart';
+import 'package:flutter_clean_coded/core/constants/app_constants.dart';
+import 'package:flutter_clean_coded/core/extensions/app_extensions.dart';
 
-import 'styles/app_colors.dart';
+import 'package:flutter_clean_coded/app/theme/app_colors.dart';
 
 ThemeData getApplicationTheme() {
   return ThemeData.light(useMaterial3: true).copyWith(
