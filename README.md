@@ -14,8 +14,8 @@
     <img src="https://img.shields.io/badge/Created%20By-SaifAlmajd-blue?style=for-the-badge&logo=github" alt="Created By">
   </a>
 </p>
-An enterprise-grade, highly scalable, clean, and modular Flutter application template structured according to modern **Clean Architecture + Feature-First** principles. Designed to support multiple development teams working in parallel.
-This template is developed and maintained by **[SaifAlmajd (Syf-Almjd)](https://github.com/Syf-Almjd)**.
+An enterprise-grade, highly scalable, clean, and modular Flutter application template structured according to modern Clean Architecture and Feature-First principles. Designed to support multiple development teams working in parallel.
+
 
 ---
 
