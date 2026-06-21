@@ -1,5 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_clean_coded/shared/widgets/widgets_builder.dart';
+import 'package:flutter_clean_coded/shared/widgets/common/widgets_builder.dart';
 
 class AppBlocObserver extends BlocObserver {
   static Future<void> init() async {

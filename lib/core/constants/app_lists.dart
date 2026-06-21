@@ -8,7 +8,7 @@ import 'package:flutter_clean_coded/features/notifications/domain/usecases/notif
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:ionicons/ionicons.dart';
-import 'package:flutter_clean_coded/shared/widgets/components.dart';
+import 'package:flutter_clean_coded/shared/widgets/common/components.dart';
 import 'package:share_plus/share_plus.dart';
 
 abstract class AppLists {

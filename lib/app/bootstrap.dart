@@ -6,7 +6,7 @@ import 'package:flutter_clean_coded/app/di/setup/app_firebase_setup.dart';
 import 'package:flutter_clean_coded/app/di/setup/app_notifications_setup.dart';
 import 'package:flutter_clean_coded/app/observers/app_bloc_observer.dart';
 import 'package:flutter_clean_coded/app/di/service_locator.dart';
-import 'package:flutter_clean_coded/shared/helpers/navigation/navi_cubit.dart';
+import 'package:flutter_clean_coded/shared/navigation/navi_cubit.dart';
 
 import 'package:flutter_clean_coded/app/l10n/locale_cubit.dart';
 

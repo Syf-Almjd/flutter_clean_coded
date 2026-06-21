@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:flutter_clean_coded/shared/widgets/components.dart';
+import 'package:flutter_clean_coded/shared/widgets/common/components.dart';
 
 part 'navi_state.dart';
 

@@ -1,7 +1,7 @@
 import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:flutter_clean_coded/app/theme/app_colors.dart';
 import 'package:flutter_clean_coded/core/enums/app_enums.dart';
-import 'package:flutter_clean_coded/shared/widgets/widgets_builder.dart';
+import 'package:flutter_clean_coded/shared/widgets/common/widgets_builder.dart';
 
 class AppNotificationSetup {
   static Future<void> init() async {

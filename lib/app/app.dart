@@ -28,7 +28,6 @@ class MyApp extends StatelessWidget {
               systemLocale = const Locale('it', 'IT');
               break;
             case AppLocale.english:
-            default:
               systemLocale = const Locale('en', 'US');
               break;
           }

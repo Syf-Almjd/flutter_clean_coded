@@ -1,6 +1,6 @@
 import 'package:flutter_clean_coded/app/theme/app_fonts.dart';
 import 'package:flutter_clean_coded/core/constants/app_assets.dart';
-import 'package:flutter_clean_coded/shared/helpers/navigation/navi_cubit.dart';
+import 'package:flutter_clean_coded/shared/navigation/navi_cubit.dart';
 import 'package:flutter/material.dart';
 
 class NoConnectionError extends StatelessWidget {

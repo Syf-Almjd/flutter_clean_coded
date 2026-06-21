@@ -12,7 +12,7 @@ import 'package:flutter_clean_coded/core/extensions/app_extensions.dart';
 import 'package:flutter_clean_coded/core/constants/app_lists.dart';
 import 'package:flutter_clean_coded/features/auth/domain/usecases/user_usecase.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
-import 'package:flutter_clean_coded/shared/helpers/navigation/navi_cubit.dart';
+import 'package:flutter_clean_coded/shared/navigation/navi_cubit.dart';
 import 'package:flutter_clean_coded/app/l10n/locale_cubit.dart';
 import 'package:toastification/toastification.dart';
 import 'package:url_launcher/url_launcher.dart';

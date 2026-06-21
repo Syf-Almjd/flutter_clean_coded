@@ -4,7 +4,7 @@ import 'package:flutter_clean_coded/app/di/service_locator.dart';
 import 'package:flutter_clean_coded/app/l10n/app_localizations.dart';
 import 'package:flutter_clean_coded/core/enums/app_enums.dart';
 import 'package:clean_arch_kit/clean_arch_kit.dart';
-import 'package:flutter_clean_coded/core/constants/local_constants.dart';
+import 'package:flutter_clean_coded/shared/utils/local_constants.dart';
 
 /// Cubit managing the application-wide locale/language preference.
 class LocaleCubit extends Cubit<AppLocale> {

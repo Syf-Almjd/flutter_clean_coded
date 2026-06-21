@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:flutter_clean_coded/app/theme/app_colors.dart';
-import 'package:flutter_clean_coded/shared/widgets/components.dart';
-import 'package:flutter_clean_coded/shared/widgets/widgets_builder.dart';
+import 'package:flutter_clean_coded/shared/widgets/common/components.dart';
+import 'package:flutter_clean_coded/shared/widgets/common/widgets_builder.dart';
 
 /// Loading indicator screen while initialization takes place.
 class SplashLoadingScreen extends StatefulWidget {

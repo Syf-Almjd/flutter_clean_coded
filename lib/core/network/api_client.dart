@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_clean_coded/shared/services/remote_storage_service.dart';
 import 'package:flutter_clean_coded/features/auth/domain/usecases/user_usecase.dart';
-import 'package:flutter_clean_coded/shared/widgets/widgets_builder.dart';
+import 'package:flutter_clean_coded/shared/widgets/common/widgets_builder.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 class ApiClient {

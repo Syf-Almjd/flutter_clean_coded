@@ -1,5 +1,5 @@
 import 'package:flutter_clean_coded/core/enums/app_enums.dart';
-import 'package:flutter_clean_coded/core/constants/local_constants.dart';
+import 'package:flutter_clean_coded/shared/utils/local_constants.dart';
 import 'package:flutter_clean_coded/shared/services/local_storage_service.dart';
 import 'package:flutter_clean_coded/shared/models/image_model.dart';
 import 'package:flutter_clean_coded/features/auth/data/models/user_model.dart';
