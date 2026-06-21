@@ -1,4 +1,4 @@
-# <h2 align="center">🏗️ Flutter Clean Architecture & Feature-First Engineered ⚙️</h2>
+# <h2 align="center">Flutter Clean Architecture & Feature-First Engineered 🏗️</h2>
 
 <p align="center">
   <a href="https://flutter.dev">
