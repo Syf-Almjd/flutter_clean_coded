@@ -1,4 +1,4 @@
-# <h1 align="center"> ⚙️ Flutter Clean Architecture & Feature-First Engineered Template</h1>
+# <h2 align="center">🏗️ Flutter Clean Architecture & Feature-First Engineered ⚙️</h2>
 
 [![Flutter Version](https://img.shields.io/badge/Flutter-June%202026-02569B?logo=flutter&style=for-the-badge)](https://flutter.dev)
 [![Architecture Style](https://img.shields.io/badge/Architecture-Clean%20%26%20Feature--First-FF6F00?logo=dart&style=for-the-badge)](https://pub.dev)
